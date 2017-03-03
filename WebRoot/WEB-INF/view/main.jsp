@@ -26,10 +26,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			<div id="left">
 				<ul class="menu_main">
-					<li class="menu_first"><a>商品管理</a>
+					<li class="menu_first"><a>员工管理</a>
 						<ul>
-							<li><a href='staff/staffList.do' target="right">商品列表</a></li>
-							<li><a href='add.html' target="right">商品添加</a></li>
+							<li><a href='staff/staffList.do' target="right">员工列表</a></li>
+							<li><a href='staff/addStaff.do' target="right">员工添加</a></li>
 						</ul>
 					</li>
 					<li class="menu_first"><a>分类管理</a>

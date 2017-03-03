@@ -23,9 +23,9 @@
 		</environment>
 	</environments> -->
 	<!-- 所有的 关于表的映射关系 xml都必须要在此处注册 -->
-	<!-- <mappers>
-		<mapper resource="com/softeem/mapper/DeptMapper.xml" />
-		<mapper resource="com/softeem/demo/model/Grade.xml" />
-		<mapper resource="com/softeem/demo/model/Student.xml" />
-	</mappers> -->
+	<mappers>
+		<mapper resource="com/lh/super_market/mapper/StaffMapper.xml" />
+	<!-- 	<mapper resource="com/softeem/demo/model/Grade.xml" />
+		<mapper resource="com/softeem/demo/model/Student.xml" /> -->
+	</mappers>
 </configuration>

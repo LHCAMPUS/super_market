@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -33,43 +34,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<table border=1 style="text-align:center">
 					<tr>
 						<th>编号</th>
-						<th>名称</th>
-						<th>单价</th>
-						<th>分类</th>
-						<th>库存</th>
-						<th>折扣</th>
+						<th>姓名</th>
+						<th>性别</th>
+						<th>手机</th>
+						<th>年龄</th>
+						<th>职称</th>
+						<th>工资</th>
+						<th>地址</th>
 						<th>操作</th>
 					</tr>
-					<tr>
-						<td>1</td>
-						<td>特步卫衣</td>
-						<td>88.8</td>
-						<td>服装</td>
-						<td>100</td>
-						<td>9.9</td>
-						<td>
-							<a href="">编辑</a>
-							&nbsp;&nbsp;
-							<a href="">详情</a>
-							&nbsp;&nbsp;
-							<a href="">删除</a>
-						</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>小米4C</td>
-						<td>999</td>
-						<td>数码</td>
-						<td>50</td>
-						<td>8.8</td>
-						<td>
-							<a href="">编辑</a>
-							&nbsp;&nbsp;
-							<a href="">详情</a>
-							&nbsp;&nbsp;
-							<a href="">删除</a>
-						</td>
-					</tr>
+					<c:forEach var="staff" items="${list }">
+						<tr>
+							<td>${staff.staff_id }</td>
+							<td>${staff.staff_name }</td>
+							<td>${staff.staff_sex }</td>
+							<td>${staff.staff_phone }</td>
+							<td>${staff.staff_age }</td>
+							<td>${staff.staff_title }</td>
+							<td>${staff.staff_wage }</td>
+							<td>${staff.staff_address }</td>
+							<td>
+								<a href="">编辑</a>
+								&nbsp;&nbsp;
+								<a href="">详情</a>
+								&nbsp;&nbsp;
+								<a href="">删除</a>
+							</td>
+						</tr>
+					</c:forEach>
 				</table>
 			</form>
 		</div>
