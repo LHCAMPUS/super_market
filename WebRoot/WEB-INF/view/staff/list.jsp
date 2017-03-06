@@ -54,11 +54,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<td>${staff.staff_wage }</td>
 							<td>${staff.staff_address }</td>
 							<td>
-								<a href="">编辑</a>
+								<a href="staff/updateStaff.do?id=${staff.staff_id }">编辑</a>
 								&nbsp;&nbsp;
 								<a href="">详情</a>
 								&nbsp;&nbsp;
-								<a href="">删除</a>
+								<a href="staff/deleteStaff.do?id=${staff.staff_id }">删除</a>
 							</td>
 						</tr>
 					</c:forEach>

@@ -1,6 +1,7 @@
 package com.lh.super_market.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,12 +24,12 @@ public class StaffServiceImpl implements StaffService{
 
 	@Override
 	public boolean update(Staff model) {
-		return false;
+		return staffDAOImpl.update(model);
 	}
 
 	@Override
 	public boolean delete(int id) {
-		return false;
+		return staffDAOImpl.delete(id);
 	}
 
 	@Override
@@ -36,6 +37,11 @@ public class StaffServiceImpl implements StaffService{
 		System.err.println("sex:"+model.getStaff_sex());
 		model.setDel(0);
 		return staffDAOImpl.add(model);
+	}
+
+	@Override
+	public List<Staff> queryByStr(Map map) {
+		return staffDAOImpl.queryByStr(map);
 	}
 
 }
