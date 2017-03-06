@@ -38,12 +38,42 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<li><a href='list_category.html' target="right">分类列表</a></li>
 						</ul>
 					</li>
-					<li class="menu_first"><a>订单管理</a>
+					<li class="menu_first"><a>商品管理</a>
 						<ul>		
 							<li><a href="" target="right">订单列表</a></li>
 						</ul>
 					</li>
-					<li class="menu_first"><a>客户管理</a>
+					<li class="menu_first"><a>会员管理</a>
+						<ul>
+							<li><a href="" target="right">客户列表</a></li>
+							<li><a href="" target="right">权限设置</a></li>
+						</ul>
+					</li>
+					<li class="menu_first"><a>销售管理</a>
+						<ul>
+							<li><a href="" target="right">客户列表</a></li>
+							<li><a href="" target="right">权限设置</a></li>
+						</ul>
+					</li>
+					<li class="menu_first"><a>供应商管理</a>
+						<ul>
+							<li><a href="" target="right">客户列表</a></li>
+							<li><a href="" target="right">权限设置</a></li>
+						</ul>
+					</li>
+					<li class="menu_first"><a>入库管理</a>
+						<ul>
+							<li><a href="" target="right">客户列表</a></li>
+							<li><a href="" target="right">权限设置</a></li>
+						</ul>
+					</li>
+					<li class="menu_first"><a>出库管理</a>
+						<ul>
+							<li><a href="" target="right">客户列表</a></li>
+							<li><a href="" target="right">权限设置</a></li>
+						</ul>
+					</li>
+					<li class="menu_first"><a>仓库管理</a>
 						<ul>
 							<li><a href="" target="right">客户列表</a></li>
 							<li><a href="" target="right">权限设置</a></li>

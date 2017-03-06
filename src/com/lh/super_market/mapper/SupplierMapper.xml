@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Supplier" >
+ <cache
+        eviction="FIFO"
+        flushInterval="60000"
+        size="512"
+        readOnly="true" />
+
+  <resultMap id="SupplierMap" type="com.lh.super_market.entity.Supplier">
+    <result column="supplier_id"  property="supplier_id" />
+    <result column="supplier_name" property="supplier_name" />
+    <result column="supplier_person" property="supplier_person" />
+    <result column="supplier_address" property="supplier_address" />
+    <result column="supplier_phone" property="supplier_phone" />
+	<result column="del" property="del"/>
+  </resultMap>
+
+
+	<sql id="base_column_list">
+		supplier_id,supplier_name,supplier_person,supplier_address,supplier_phone,del
+	</sql>
+	
+	<select id="selectBystrWhere" parameterType="java.util.Map" resultMap="SupplierMap">
+		SELECT 
+			<include refid="base_column_list"/> 
+		FROM 
+			EB_GOODS WHERE DEL=0
+		<if test="strWhere!=null and strwhere!=''">
+			and ${strWhere}
+		</if>
+	</select>
+
+	<select id="selectAll" resultMap="SupplierMap">
+	 	SELECT * FROM MARKET_SUPPLIER
+	</select>
+
+	<select id="selectById" parameterType="int" resultMap="SupplierMap">
+	 	select * from eb_goods where gid=#{gid}
+	</select>
+	
+	<insert id="insert" useGeneratedKeys="true" keyProperty="supplier_id"  parameterType="com.lh.super_market.entity.Supplier">
+		insert into MARKET_SUPPLIER(
+			supplier_name,supplier_person,supplier_address,supplier_phone,del
+		) values(
+			#{supplier_name},
+			#{supplier_person},
+			#{supplier_address},
+			#{supplier_phone},
+			#{del}
+		)
+	</insert>	
+	
+	
+	<update id="update"  parameterType="com.lh.super_market.entity.Supplier" >
+		update eb_goods set gname=#{gname},price=#{price},offset=#{offset},
+			publishTime=#{publishTime},total=#{total},src=#{src},del=#{del}
+		where gid=#{gid}
+	</update>
+	
+ 	
+  <delete id="deleteByPrimaryKey" parameterType="int">
+    update  eb_goods set del=1
+    where gid = #{gid}
+  </delete>
+
+</mapper>

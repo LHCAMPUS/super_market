@@ -25,6 +25,9 @@
 	<!-- 所有的 关于表的映射关系 xml都必须要在此处注册 -->
 	<mappers>
 		<mapper resource="com/lh/super_market/mapper/StaffMapper.xml" />
+		<mapper resource="com/lh/super_market/mapper/GoodsMapper.xml" />
+		<mapper resource="com/lh/super_market/mapper/CategoryMapper.xml" />
+		<mapper resource="com/lh/super_market/mapper/SupplierMapper.xml" />
 	<!-- 	<mapper resource="com/softeem/demo/model/Grade.xml" />
 		<mapper resource="com/softeem/demo/model/Student.xml" /> -->
 	</mappers>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Staff" >
+ <cache
+        eviction="FIFO"
+        flushInterval="60000"
+        size="512"
+        readOnly="true" />
+
+  <resultMap id="GoodsMap" type="com.lh.super_market.entity.Goods">
+    <result column="staff_id"  property="staff_id" />
+    <result column="staff_name" property="staff_name" />
+    <result column="staff_sex" property="staff_sex" />
+    <result column="staff_title" property="staff_title" />
+    <result column="staff_wage" property="staff_wage" />
+    <result column="staff_address" property="staff_address" />
+    <result column="staff_phone" property="staff_phone" />
+	<result column="del" property="del"/>
+  </resultMap>
+
+
+	<sql id="base_column_list">
+		staff_id,staff_name,staff_sex,staff_title,staff_wage,staff_address,staff_phone,del
+	</sql>
+	
+	<select id="selectBystrWhere" parameterType="java.util.Map" resultMap="GoodsMap">
+		SELECT 
+			<include refid="base_column_list"/> 
+		FROM 
+			MARKET_STAFF WHERE DEL=0
+		<if test="strWhere!=null and strwhere!=''">
+			and ${strWhere}
+		</if>
+	</select>
+
+	<select id="selectAll" resultMap="GoodsMap">
+	 	SELECT * FROM MARKET_STAFF WHERE DEL = 0;
+	</select>
+
+	<select id="selectById" parameterType="int" resultMap="GoodsMap">
+	 	select * from eb_goods where gid=#{gid}
+	</select>
+	
+	<insert id="insert" useGeneratedKeys="true" keyProperty="staff_id"  parameterType="com.lh.super_market.entity.Goods">
+		insert into MARKET_STAFF(
+			staff_name,staff_sex,staff_title,staff_wage,staff_address,staff_phone,del
+		) values(
+			#{staff_name},
+			#{staff_sex},
+			#{staff_title},
+			#{staff_wage},
+			#{staff_address},
+			#{staff_phone},
+			#{del}
+		)
+	</insert>	
+	
+	
+	<update id="update"  parameterType="com.lh.super_market.entity.Goods" >
+		update 
+			MARKET_STAFF
+	    set 
+	    	staff_name=#{staff_name},
+	    	staff_sex=#{staff_sex},
+	    	staff_title=#{staff_title},
+			staff_wage=#{staff_wage},
+			staff_address=#{staff_address},
+			staff_phone=#{staff_phone},
+			del=#{del}
+		where staff_id=#{staff_id}
+	</update>
+	
+ 	
+	  <delete id="deleteByPrimaryKey" parameterType="int">
+		    update  
+		    	MARKET_STAFF
+		    set 
+		    	del=1
+		    where staff_id=#{staff_id}
+	  </delete>
+
+</mapper>
