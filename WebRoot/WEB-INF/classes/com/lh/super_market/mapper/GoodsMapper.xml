@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="Staff" >
+<mapper namespace="Goods" >
  <cache
         eviction="FIFO"
         flushInterval="60000"
@@ -8,33 +8,32 @@
         readOnly="true" />
 
   <resultMap id="GoodsMap" type="com.lh.super_market.entity.Goods">
-    <result column="staff_id"  property="staff_id" />
-    <result column="staff_name" property="staff_name" />
-    <result column="staff_sex" property="staff_sex" />
-    <result column="staff_title" property="staff_title" />
-    <result column="staff_wage" property="staff_wage" />
-    <result column="staff_address" property="staff_address" />
-    <result column="staff_phone" property="staff_phone" />
+    <result column="goods_id"  property="goods_id" />
+    <result column="goods_name" property="goods_name" />
+    <result column="goods_money" property="goods_money" />
+    <result column="goods_saleMoney" property="goods_saleMoney" />
+    <result column="goods_date" property="goods_date" />
+    <result column="goods_counts" property="goods_counts" />
 	<result column="del" property="del"/>
   </resultMap>
 
 
 	<sql id="base_column_list">
-		staff_id,staff_name,staff_sex,staff_title,staff_wage,staff_address,staff_phone,del
+		goods_id,goods_name,goods_money,goods_saleMoney,goods_date,goods_counts,del
 	</sql>
 	
 	<select id="selectBystrWhere" parameterType="java.util.Map" resultMap="GoodsMap">
 		SELECT 
 			<include refid="base_column_list"/> 
 		FROM 
-			MARKET_STAFF WHERE DEL=0
+			MARKET_GOODS WHERE DEL=0
 		<if test="strWhere!=null and strwhere!=''">
 			and ${strWhere}
 		</if>
 	</select>
 
 	<select id="selectAll" resultMap="GoodsMap">
-	 	SELECT * FROM MARKET_STAFF WHERE DEL = 0;
+	 	SELECT * FROM MARKET_GOODS WHERE DEL = 0;
 	</select>
 
 	<select id="selectById" parameterType="int" resultMap="GoodsMap">
@@ -42,15 +41,14 @@
 	</select>
 	
 	<insert id="insert" useGeneratedKeys="true" keyProperty="staff_id"  parameterType="com.lh.super_market.entity.Goods">
-		insert into MARKET_STAFF(
-			staff_name,staff_sex,staff_title,staff_wage,staff_address,staff_phone,del
+		insert into MARKET_GOODS(
+			goods_name,goods_money,goods_saleMoney,goods_date,goods_counts,del
 		) values(
-			#{staff_name},
-			#{staff_sex},
-			#{staff_title},
-			#{staff_wage},
-			#{staff_address},
-			#{staff_phone},
+			#{goods_name},
+			#{goods_money},
+			#{goods_saleMoney},
+			#{goods_date},
+			#{goods_counts},
 			#{del}
 		)
 	</insert>	
@@ -58,25 +56,24 @@
 	
 	<update id="update"  parameterType="com.lh.super_market.entity.Goods" >
 		update 
-			MARKET_STAFF
+			MARKET_GOODS
 	    set 
-	    	staff_name=#{staff_name},
-	    	staff_sex=#{staff_sex},
-	    	staff_title=#{staff_title},
-			staff_wage=#{staff_wage},
-			staff_address=#{staff_address},
-			staff_phone=#{staff_phone},
+	    	goods_name=#{goods_name},
+	    	goods_money=#{goods_money},
+	    	goods_saleMoney=#{goods_saleMoney},
+			goods_date=#{goods_date},
+			goods_counts=#{goods_counts},
 			del=#{del}
-		where staff_id=#{staff_id}
+		where goods_id=#{goods_id}
 	</update>
 	
  	
 	  <delete id="deleteByPrimaryKey" parameterType="int">
 		    update  
-		    	MARKET_STAFF
+		    	MARKET_GOODS
 		    set 
 		    	del=1
-		    where staff_id=#{staff_id}
+		    where goods_id=#{goods_id}
 	  </delete>
 
 </mapper>

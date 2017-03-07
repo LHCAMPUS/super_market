@@ -40,7 +40,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</li>
 					<li class="menu_first"><a>商品管理</a>
 						<ul>		
-							<li><a href="" target="right">订单列表</a></li>
+							<li><a href='goods/goodsList.do' target="right">商品列表</a></li>
+							<li><a href='goods/addGoods.do' target="right">商品添加</a></li>
 						</ul>
 					</li>
 					<li class="menu_first"><a>会员管理</a>
