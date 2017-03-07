@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Inhousing" >
+ <cache
+        eviction="FIFO"
+        flushInterval="60000"
+        size="512"
+        readOnly="true" />
+
+  <resultMap id="InhousingMap" type="com.lh.super_market.entity.Inhousing">
+    <result column="inhousing_id"  property="inhousing_id" />
+    <result column="goods_name" property="goods_name" />
+    <result column="goods_counts" property="goods_counts" />
+    <result column="goods_id" property="goods_id" />
+    <result column="supplier_id" property="supplier_id" />
+    <result column="inhousing_date" property="inhousing_date" />
+    <result column="warehouse_id" property="warehouse_id" />
+	<result column="del" property="del"/>
+  </resultMap>
+
+
+	<sql id="base_column_list">
+		inhousing_id,goods_name,goods_counts,goods_id,supplier_id,inhousing_date,warehouse_id,del
+	</sql>
+	
+	<select id="selectBystrWhere" parameterType="java.util.Map" resultMap="InhousingMap">
+		SELECT 
+			<include refid="base_column_list"/> 
+		FROM 
+			MARKET_STAFF WHERE DEL=0
+		<if test="strWhere!=null and strwhere!=''">
+			and ${strWhere}
+		</if>
+	</select>
+
+	<select id="selectAll" resultMap="InhousingMap">
+	 	SELECT * FROM MARKET_INHOUSING WHERE DEL = 0;
+	</select>
+
+	<select id="selectById" parameterType="int" resultMap="InhousingMap">
+	 	select * from eb_goods where gid=#{gid}
+	</select>
+	
+	<insert id="insert" useGeneratedKeys="true" keyProperty="inhousing_id"  parameterType="com.lh.super_market.entity.Inhousing">
+		insert into MARKET_INHOUSING(
+			goods_name,goods_counts,goods_id,supplier_id,inhousing_date,warehouse_id,del
+		) values(
+			#{goods_name},
+			#{goods_counts},
+			#{goods_id},
+			#{supplier_id},
+			#{inhousing_date},
+			#{warehouse_id},
+			#{del}
+		)
+	</insert>	
+	
+	
+	<update id="update"  parameterType="com.lh.super_market.entity.Inhousing" >
+		update 
+			MARKET_INHOUSING
+	    set 
+	    	goods_name=#{goods_name},
+	    	goods_counts=#{goods_counts},
+	    	goods_id=#{goods_id},
+			supplier_id=#{supplier_id},
+			inhousing_date=#{inhousing_date},
+			warehouse_id=#{warehouse_id},
+			del=#{del}
+		where inhousing_id=#{inhousing_id}
+	</update>
+	
+ 	
+	  <delete id="deleteByPrimaryKey" parameterType="int">
+		    update  
+		    	MARKET_INHOUSING
+		    set 
+		    	del=1
+		    where inhousing_id=#{inhousing_id}
+	  </delete>
+
+</mapper>

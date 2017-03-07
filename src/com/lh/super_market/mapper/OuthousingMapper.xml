@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Outhousing" >
+ <cache
+        eviction="FIFO"
+        flushInterval="60000"
+        size="512"
+        readOnly="true" />
+
+  <resultMap id="OuthousingMap" type="com.lh.super_market.entity.Outhousing">
+    <result column="outhousing_id"  property="outhousing_id" />
+    <result column="goods_name" property="goods_name" />
+    <result column="goods_counts" property="goods_counts" />
+    <result column="outhousing_date" property="outhousing_date" />
+    <result column="goods_id" property="goods_id" />
+    <result column="supplier_id" property="supplier_id" />
+    <result column="warehouse_id" property="warehouse_id" />
+	<result column="del" property="del"/>
+  </resultMap>
+
+
+	<sql id="base_column_list">
+		outhousing_id,goods_name,goods_counts,outhousing_date,goods_id,supplier_id,warehouse_id,del
+	</sql>
+	
+	<select id="selectBystrWhere" parameterType="java.util.Map" resultMap="OuthousingMap">
+		SELECT 
+			<include refid="base_column_list"/> 
+		FROM 
+			MARKET_OUTHOUSING WHERE DEL=0
+		<if test="strWhere!=null and strwhere!=''">
+			and ${strWhere}
+		</if>
+	</select>
+
+	<select id="selectAll" resultMap="OuthousingMap">
+	 	SELECT * FROM MARKET_OUTHOUSING WHERE DEL = 0;
+	</select>
+
+	<select id="selectById" parameterType="int" resultMap="OuthousingMap">
+	 	select * from eb_goods where gid=#{gid}
+	</select>
+	
+	<insert id="insert" useGeneratedKeys="true" keyProperty="outhousing_id"  parameterType="com.lh.super_market.entity.Outhousing">
+		insert into MARKET_OUTHOUSING(
+			goods_name,goods_counts,outhousing_date,goods_id,supplier_id,warehouse_id,del
+		) values(
+			#{goods_name},
+			#{goods_counts},
+			#{outhousing_date},
+			#{goods_id},
+			#{supplier_id},
+			#{warehouse_id},
+			#{del}
+		)
+	</insert>	
+	
+	
+	<update id="update"  parameterType="com.lh.super_market.entity.Outhousing" >
+		update 
+			MARKET_OUTHOUSING
+	    set 
+	    	goods_name=#{goods_name},
+	    	goods_counts=#{goods_counts},
+	    	outhousing_date=#{outhousing_date},
+			goods_id=#{goods_id},
+			supplier_id=#{supplier_id},
+			warehouse_id=#{warehouse_id},
+			del=#{del}
+		where outhousing_id=#{outhousing_id}
+	</update>
+	
+ 	
+	  <delete id="deleteByPrimaryKey" parameterType="int">
+		    update  
+		    	MARKET_OUTHOUSING
+		    set 
+		    	del=1
+		    where outhousing_id=#{outhousing_id}
+	  </delete>
+
+</mapper>

@@ -9,6 +9,11 @@ public class PassController {
 	@RequestMapping("/login.do")
 	public String index(){
 		System.err.println("====================================");
+		return "login";
+	}
+	@RequestMapping("/main.do")
+	public String main(){
+		System.err.println("====================================");
 		return "main";
 	}
 }
