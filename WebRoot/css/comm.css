@@ -78,3 +78,7 @@ th{
 	font-family: 微软雅黑;
 	border:solid 1px #CCCCCC; 
 }
+a{
+	/* text-decoration:none; */
+	color:black;
+}

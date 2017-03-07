@@ -56,8 +56,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<td>
 								<a href="staff/updateStaff.do?id=${staff.staff_id }">编辑</a>
 								&nbsp;&nbsp;
-								<a href="">详情</a>
-								&nbsp;&nbsp;
 								<a href="staff/deleteStaff.do?id=${staff.staff_id }">删除</a>
 							</td>
 						</tr>
