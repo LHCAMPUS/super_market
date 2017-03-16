@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Viper" >
+ <cache
+        eviction="FIFO"
+        flushInterval="60000"
+        size="512"
+        readOnly="true" />
+
+  <resultMap id="ViperMap" type="com.lh.super_market.entity.Viper">
+    <result column="vip_id"  property="vip_id" />
+    <result column="vip_no" property="vip_no" />
+    <result column="vip_name" property="vip_name" />
+    <result column="vip_idCard" property="vip_idCard" />
+    <result column="vip_integral" property="vip_integral" />
+	<result column="del" property="del"/>
+  </resultMap>
+
+
+	<sql id="base_column_list">
+		vip_id,vip_no,vip_name,vip_idCard,vip_integral,del
+	</sql>
+	
+	<select id="selectBystrWhere" parameterType="java.util.Map" resultMap="ViperMap">
+		SELECT 
+			<include refid="base_column_list"/> 
+		FROM 
+			MARKET_VIPER WHERE DEL=0
+		<if test="strWhere!=null and strwhere!=''">
+			and ${strWhere}
+		</if>
+	</select>
+
+	<select id="selectAll" resultMap="ViperMap">
+	 	SELECT * FROM MARKET_VIPER WHERE DEL = 0;
+	</select>
+
+	<select id="selectById" parameterType="int" resultMap="ViperMap">
+	 	select * from eb_goods where gid=#{gid}
+	</select>
+	
+	<insert id="insert" useGeneratedKeys="true" keyProperty="vip_id"  parameterType="com.lh.super_market.entity.Viper">
+		insert into MARKET_VIPER(
+			vip_no,vip_name,vip_idCard,vip_integral,del
+		) values(
+			#{vip_no},
+			#{vip_name},
+			#{vip_idCard},
+			#{vip_integral},
+			#{del}
+		)
+	</insert>	
+	
+	
+	<update id="update"  parameterType="com.lh.super_market.entity.Viper" >
+		update 
+			MARKET_VIPER
+	    set 
+	    	vip_no=#{vip_no},
+	    	vip_name=#{vip_name},
+			vip_idCard=#{vip_idCard},
+			vip_integral=#{vip_integral},
+			del=#{del}
+		where vip_id=#{vip_id}
+	</update>
+	
+ 	
+	  <delete id="deleteByPrimaryKey" parameterType="int">
+		    update  
+		    	MARKET_VIPER
+		    set 
+		    	del=1
+		    where vip_id=#{vip_id}
+	  </delete>
+
+</mapper>
