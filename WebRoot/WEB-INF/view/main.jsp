@@ -64,14 +64,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</li>
 					<li class="menu_first"><a>入库管理</a>
 						<ul>
-							<li><a href="" target="right">入库列表</a></li>
-							<li><a href="" target="right">入库添加</a></li>
+							<li><a href="inhousing/inhousingList.do" target="right">入库列表</a></li>
+							<li><a href="inhousing/addInhousing.do" target="right">入库添加</a></li>
 						</ul>
 					</li>
 					<li class="menu_first"><a>出库管理</a>
 						<ul>
-							<li><a href="" target="right">出库列表</a></li>
-							<li><a href="" target="right">出库添加</a></li>
+							<li><a href="outhousing/outhousingList.do" target="right">出库列表</a></li>
+							<li><a href="outhousing/addOuthousing.do" target="right">出库添加</a></li>
 						</ul>
 					</li>
 					<li class="menu_first"><a>仓库管理</a>

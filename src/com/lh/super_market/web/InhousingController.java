@@ -32,12 +32,15 @@ public class InhousingController {
 	}
 	
 	@RequestMapping(value = "/addInhousing.do", method = RequestMethod.GET)
-	public String addinhousing(){
+	public String addInhousing(){
 		return "inhousing/add";
 	}
 	
 	@RequestMapping(value = "/addInhousing.do", method = RequestMethod.POST)
-	public String addinhousingInfo(Inhousing inhousing){
+	public String addInhousingInfo(Inhousing inhousing){
+		System.out.println("---------------------");
+		System.out.println(inhousing.getGoods_name());
+		System.out.println(inhousing.getSupplier_id());
 		inhousingServiceImpl.add(inhousing);
 		return "inhousing/add";
 	}
