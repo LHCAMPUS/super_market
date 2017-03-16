@@ -8,25 +8,26 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.lh.super_market.dao.GoodsDAO;
-import com.lh.super_market.entity.Goods;
+import com.lh.super_market.dao.WarehouseDAO;
+import com.lh.super_market.entity.Category;
+import com.lh.super_market.entity.Warehouse;
 
 @Repository
-public class GoodsDAOImpl implements GoodsDAO{
+public class WarehouseDAOImpl implements WarehouseDAO{
 
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	
-	private static final String NAMESPACE = "Goods.";
+	private static final String NAMESPACE = "Warehouse.";
 	
 	@Override
-	public List<Goods> query() {
-		List<Goods> list = sqlSessionTemplate.selectList(NAMESPACE+"selectAll");
+	public List<Warehouse> query() {
+		List<Warehouse> list = sqlSessionTemplate.selectList(NAMESPACE+"selectAll");
 		return list;
 	}
 
 	@Override
-	public boolean update(Goods model) {
+	public boolean update(Warehouse model) {
 		int result = sqlSessionTemplate.update(NAMESPACE+"update", model);
 		return result > 0 ? true : false;
 	}
@@ -38,22 +39,22 @@ public class GoodsDAOImpl implements GoodsDAO{
 	}
 
 	@Override
-	public int add(Goods model) {
+	public int add(Warehouse model) {
 		sqlSessionTemplate.insert(NAMESPACE+"insert", model);
-		return model.getGoods_id();
+		return model.getWarehouse_id();
 	}
 
 	@Override
-	public List<Goods> queryByStr(Map map) {
-		List<Goods> list = sqlSessionTemplate.selectList(NAMESPACE+"selectBystrWhere", map);
+	public List<Warehouse> queryByStr(Map map) {
+		List<Warehouse> list = sqlSessionTemplate.selectList(NAMESPACE+"selectBystrWhere", map);
 		return list;
 	}
 	
-	@Override
-	public Goods queryById(int id) {
+	public Warehouse queryById(int id) {
 		Map<String,String> map = new HashMap<String,String>();
-		map.put("strWhere", "Goods_id="+id);
-		List<Goods> list = sqlSessionTemplate.selectList(NAMESPACE+"selectBystrWhere", map);
+		map.put("strWhere", "warehouse_id="+id);
+		List<Warehouse> list = sqlSessionTemplate.selectList(NAMESPACE+"selectBystrWhere", map);
 		return list.get(0);
 	}
+
 }

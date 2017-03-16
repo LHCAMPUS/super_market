@@ -44,4 +44,10 @@ public class SupplierServiceImpl implements SupplierService{
 		return null;
 	}
 
+	@Override
+	public Supplier queryById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

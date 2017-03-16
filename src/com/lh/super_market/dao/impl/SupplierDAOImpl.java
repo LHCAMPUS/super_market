@@ -46,4 +46,10 @@ public class SupplierDAOImpl implements SupplierDAO{
 		return null;
 	}
 
+	@Override
+	public Supplier queryById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

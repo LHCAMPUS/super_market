@@ -44,4 +44,10 @@ public class StaffServiceImpl implements StaffService{
 		return staffDAOImpl.queryByStr(map);
 	}
 
+	@Override
+	public Staff queryById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

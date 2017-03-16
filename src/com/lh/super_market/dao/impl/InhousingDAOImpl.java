@@ -47,4 +47,10 @@ public class InhousingDAOImpl implements InhousingDAO{
 		List<Inhousing> list = sqlSessionTemplate.selectList(NAMESPACE+"selectBystrWhere", map);
 		return list;
 	}
+
+	@Override
+	public Inhousing queryById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

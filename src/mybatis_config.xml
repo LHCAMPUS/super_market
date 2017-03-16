@@ -30,5 +30,6 @@
 		<mapper resource="com/lh/super_market/mapper/SupplierMapper.xml" />
 		<mapper resource="com/lh/super_market/mapper/InhousingMapper.xml" />
 		<mapper resource="com/lh/super_market/mapper/OuthousingMapper.xml" />
+		<mapper resource="com/lh/super_market/mapper/WarehouseMapper.xml" />
 	</mappers>
 </configuration>

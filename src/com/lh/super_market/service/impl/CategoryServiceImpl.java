@@ -44,4 +44,10 @@ public class CategoryServiceImpl implements CategoryService{
 		return null;
 	}
 
+	@Override
+	public Category queryById(int id) {
+		Category category = categoryDAOImpl.queryById(id);
+		return category;
+	}
+
 }

@@ -23,7 +23,7 @@
 		SELECT 
 			<include refid="base_column_list"/> 
 		FROM 
-			EB_GOODS WHERE DEL=0
+			MARKET_CATEGORY WHERE DEL=0
 		<if test="strWhere!=null and strwhere!=''">
 			and ${strWhere}
 		</if>
@@ -49,15 +49,23 @@
 	
 	
 	<update id="update"  parameterType="com.lh.super_market.entity.Category" >
-		update eb_goods set gname=#{gname},price=#{price},offset=#{offset},
-			publishTime=#{publishTime},total=#{total},src=#{src},del=#{del}
-		where gid=#{gid}
+		update 
+			MARKET_CATEGORY
+	    set 
+	    	category_name=#{category_name},
+	    	category_remark=#{category_remark},
+			del=#{del}
+		where category_id=#{category_id}
 	</update>
 	
  	
   <delete id="deleteByPrimaryKey" parameterType="int">
-    update  eb_goods set del=1
-    where gid = #{gid}
+    update  
+    	MARKET_CATEGORY 
+    set 
+    	del=1
+    where 
+    	category_id = #{category_id}
   </delete>
 
 </mapper>

@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -29,6 +30,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td align="right" valign="top">单价:</td>
 						<td>
 							<input type="text" name="goods_money" class="txt" required placeholder="请输入单价"/>
+						</td>
+					</tr>
+					<tr>
+						<td align="right" valign="top">分类:</td>
+						<td>
+							<select name="category_id" id="category_id">
+								<c:forEach var = "category" items="${categoryList }">
+									<option value="${category.category_id }">${category.category_name } </option>
+								</c:forEach>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td align="right" valign="top">仓库:</td>
+						<td>
+							<select name="warehouse_id" id="warehouse_id">
+								<c:forEach var = "warehouse" items="${warehouseList }">
+									<option value="${warehouse.warehouse_id }">${warehouse.warehouse_name } </option>
+								</c:forEach>
+							</select>
 						</td>
 					</tr>
 					<tr>

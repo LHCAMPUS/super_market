@@ -47,4 +47,10 @@ public class StaffDAOImpl implements StaffDAO{
 		List<Staff> list = sqlSessionTemplate.selectList(NAMESPACE+"selectBystrWhere", map);
 		return list;
 	}
+
+	@Override
+	public Staff queryById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

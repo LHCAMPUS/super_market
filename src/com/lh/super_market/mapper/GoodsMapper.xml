@@ -14,12 +14,14 @@
     <result column="goods_saleMoney" property="goods_saleMoney" />
     <result column="goods_date" property="goods_date" />
     <result column="goods_counts" property="goods_counts" />
+    <result column="category_id" property="category_id" />
+    <result column="warehouse_id" property="warehouse_id" />
 	<result column="del" property="del"/>
   </resultMap>
 
 
 	<sql id="base_column_list">
-		goods_id,goods_name,goods_money,goods_saleMoney,goods_date,goods_counts,del
+		goods_id,goods_name,goods_money,goods_saleMoney,goods_date,goods_counts,category_id,warehouse_id,del
 	</sql>
 	
 	<select id="selectBystrWhere" parameterType="java.util.Map" resultMap="GoodsMap">
@@ -42,13 +44,15 @@
 	
 	<insert id="insert" useGeneratedKeys="true" keyProperty="staff_id"  parameterType="com.lh.super_market.entity.Goods">
 		insert into MARKET_GOODS(
-			goods_name,goods_money,goods_saleMoney,goods_date,goods_counts,del
+			goods_name,goods_money,goods_saleMoney,goods_date,goods_counts,category_id,warehouse_id,del
 		) values(
 			#{goods_name},
 			#{goods_money},
 			#{goods_saleMoney},
 			#{goods_date},
 			#{goods_counts},
+			#{category_id},
+			#{warehouse_id},
 			#{del}
 		)
 	</insert>	
@@ -63,6 +67,8 @@
 	    	goods_saleMoney=#{goods_saleMoney},
 			goods_date=#{goods_date},
 			goods_counts=#{goods_counts},
+			category_id=#{category_id},
+			warehouse_id=#{warehouse_id},
 			del=#{del}
 		where goods_id=#{goods_id}
 	</update>

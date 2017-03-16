@@ -47,4 +47,10 @@ public class OuthousingDAOImpl implements OuthousingDAO{
 		List<Outhousing> list = sqlSessionTemplate.selectList(NAMESPACE+"selectBystrWhere", map);
 		return list;
 	}
+
+	@Override
+	public Outhousing queryById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

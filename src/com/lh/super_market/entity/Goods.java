@@ -11,6 +11,8 @@ public class Goods implements Serializable{
 	private double goods_saleMoney;
 	private Date goods_date;
 	private int goods_counts;
+	private int category_id;
+	private int warehouse_id;
 	private int del;
 	
 	public int getGoods_id() {
@@ -54,6 +56,18 @@ public class Goods implements Serializable{
 	}
 	public void setDel(int del) {
 		this.del = del;
+	}
+	public int getCategory_id() {
+		return category_id;
+	}
+	public void setCategory_id(int category_id) {
+		this.category_id = category_id;
+	}
+	public int getWarehouse_id() {
+		return warehouse_id;
+	}
+	public void setWarehouse_id(int warehouse_id) {
+		this.warehouse_id = warehouse_id;
 	}
 	
 	

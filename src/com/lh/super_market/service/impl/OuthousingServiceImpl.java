@@ -43,4 +43,10 @@ public class OuthousingServiceImpl implements OuthousingService{
 		return outhousingDAOImpl.queryByStr(map);
 	}
 
+	@Override
+	public Outhousing queryById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

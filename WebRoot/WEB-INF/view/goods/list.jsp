@@ -11,6 +11,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <base href="<%=basePath%>">
     <title>员工信息</title>
 	<link type="text/css" rel="stylesheet" href="css/comm.css"/>
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src=""></script>
 	<style>
 		table tr{
 			height:40px;
@@ -36,6 +38,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<th>编号</th>
 						<th>名称</th>
 						<th>进价</th>
+						<th>分类</th>
+						<th>仓库</th>
 						<th>售价</th>
 						<th>生产日期</th>
 						<th>数量</th>
@@ -46,6 +50,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<td>${goods.goods_id }</td>
 							<td>${goods.goods_name }</td>
 							<td>${goods.goods_money }</td>
+							<td class="category_id">${goods.category_id }</td>
+							<td class="warehouse_id">${goods.warehouse_id }</td>
 							<td>${goods.goods_saleMoney }</td>
 							<td>${goods.goods_date }</td>
 							<td>${goods.goods_counts }</td>
@@ -62,4 +68,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</form>
 		</div>
   </body>
+  <script type="text/javascript">
+  
+  	$(document).ready(function(){
+  		var count = 0;
+  		$(".category_id").each(function(){
+  			$.ajax({
+  	  			url : "<%=path%>/goods/getCateAndWare.do",
+  	  			type : "POST",
+  	  			async : false,
+  	  			data :
+  	  			{
+  	  				category_id : $(this).html(),
+  	  				warehouse_id : $(this).next().html()
+  	  			},
+  	  			dataType : 'json',
+  	  			success : function(data){
+	  	  			$(".category_id").eq(count).html(data.categoryName);
+	  	  			$(".warehouse_id").eq(count).html(data.warehouseName);
+	  	  			count++;
+  	  			}
+  	  			
+  	  		});
+  		});
+  	});
+  </script>
 </html>

@@ -43,4 +43,10 @@ public class InhousingServiceImpl implements InhousingService{
 		return inhousingDAOImpl.queryByStr(map);
 	}
 
+	@Override
+	public Inhousing queryById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

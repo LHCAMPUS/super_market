@@ -10,5 +10,5 @@ public interface BaseService<T> {
 	public boolean delete(int id);
 	public int add(T model);
 	public List<T> queryByStr(Map map);
-	
+	public T queryById(int id);
 }

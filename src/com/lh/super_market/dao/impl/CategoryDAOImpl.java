@@ -1,5 +1,6 @@
 package com.lh.super_market.dao.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.lh.super_market.dao.CategoryDAO;
 import com.lh.super_market.entity.Category;
+import com.lh.super_market.entity.Goods;
 
 @Repository
 public class CategoryDAOImpl implements CategoryDAO{
@@ -44,6 +46,13 @@ public class CategoryDAOImpl implements CategoryDAO{
 	public List<Category> queryByStr(Map map) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public Category queryById(int id) {
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("strWhere", "category_id="+id);
+		List<Category> list = sqlSessionTemplate.selectList(NAMESPACE+"selectBystrWhere", map);
+		return list.get(0);
 	}
 
 }

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Warehouse" >
+ <cache
+        eviction="FIFO"
+        flushInterval="60000"
+        size="512"
+        readOnly="true" />
+
+  <resultMap id="WarehouseMap" type="com.lh.super_market.entity.Warehouse">
+    <result column="warehouse_id"  property="warehouse_id" />
+    <result column="warehouse_name" property="warehouse_name" />
+    <result column="warehouse_address" property="warehouse_address" />
+	<result column="del" property="del"/>
+  </resultMap>
+
+
+	<sql id="base_column_list">
+		warehouse_id,warehouse_name,warehouse_address,del
+	</sql>
+	
+	<select id="selectBystrWhere" parameterType="java.util.Map" resultMap="WarehouseMap">
+		SELECT 
+			<include refid="base_column_list"/> 
+		FROM 
+			MARKET_WAREHOUSE WHERE DEL=0
+		<if test="strWhere!=null and strwhere!=''">
+			and ${strWhere}
+		</if>
+	</select>
+
+	<select id="selectAll" resultMap="WarehouseMap">
+	 	SELECT * FROM MARKET_WAREHOUSE WHERE DEL = 0;
+	</select>
+
+	<select id="selectById" parameterType="int" resultMap="WarehouseMap">
+	 	select * from MARKET_WAREHOUSE where warehouse_id=#{warehouse_id}
+	</select>
+	
+	<insert id="insert" useGeneratedKeys="true" keyProperty="staff_id"  parameterType="com.lh.super_market.entity.Warehouse">
+		insert into MARKET_WAREHOUSE(
+			warehouse_name,warehouse_address,del
+		) values(
+			#{warehouse_name},
+			#{warehouse_address},
+			#{del}
+		)
+	</insert>	
+	
+	
+	<update id="update"  parameterType="com.lh.super_market.entity.Warehouse" >
+		update 
+			MARKET_WAREHOUSE
+	    set 
+	    	warehouse_name=#{warehouse_name},
+	    	warehouse_address=#{warehouse_address},
+			del=#{del}
+		where warehouse_id=#{warehouse_id}
+	</update>
+	
+ 	
+	  <delete id="deleteByPrimaryKey" parameterType="int">
+		    update  
+		    	MARKET_WAREHOUSE
+		    set 
+		    	del=1
+		    where warehouse_id=#{warehouse_id}
+	  </delete>
+
+</mapper>
