@@ -30,13 +30,9 @@
 	</select>
 
 	<select id="selectAll" resultMap="CategoryMap">
-	 	SELECT * FROM MARKET_CATEGORY
+	 	SELECT * FROM MARKET_CATEGORY WHERE DEL = 0
 	</select>
 
-	<select id="selectById" parameterType="int" resultMap="CategoryMap">
-	 	select * from eb_goods where gid=#{gid}
-	</select>
-	
 	<insert id="insert" useGeneratedKeys="true" keyProperty="category_id"  parameterType="com.lh.super_market.entity.Category">
 		insert into MARKET_CATEGORY(
 			category_name,category_remark,del

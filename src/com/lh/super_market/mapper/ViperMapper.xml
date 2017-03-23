@@ -35,10 +35,6 @@
 	 	SELECT * FROM MARKET_VIPER WHERE DEL = 0;
 	</select>
 
-	<select id="selectById" parameterType="int" resultMap="ViperMap">
-	 	select * from eb_goods where gid=#{gid}
-	</select>
-	
 	<insert id="insert" useGeneratedKeys="true" keyProperty="vip_id"  parameterType="com.lh.super_market.entity.Viper">
 		insert into MARKET_VIPER(
 			vip_no,vip_name,vip_idCard,vip_integral,del

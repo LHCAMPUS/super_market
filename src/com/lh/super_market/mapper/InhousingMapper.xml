@@ -36,10 +36,6 @@
 	<select id="selectAll" resultMap="InhousingMap">
 	 	SELECT * FROM MARKET_INHOUSING WHERE DEL = 0;
 	</select>
-
-	<select id="selectById" parameterType="int" resultMap="InhousingMap">
-	 	select * from eb_goods where gid=#{gid}
-	</select>
 	
 	<insert id="insert" useGeneratedKeys="true" keyProperty="inhousing_id"  parameterType="com.lh.super_market.entity.Inhousing">
 		insert into MARKET_INHOUSING(

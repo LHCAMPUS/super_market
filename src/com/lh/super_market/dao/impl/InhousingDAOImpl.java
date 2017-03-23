@@ -1,5 +1,6 @@
 package com.lh.super_market.dao.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.lh.super_market.dao.InhousingDAO;
+import com.lh.super_market.entity.Category;
 import com.lh.super_market.entity.Inhousing;
 
 @Repository
@@ -50,7 +52,9 @@ public class InhousingDAOImpl implements InhousingDAO{
 
 	@Override
 	public Inhousing queryById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("strWhere", "inhousing_id="+id);
+		List<Inhousing> list = sqlSessionTemplate.selectList(NAMESPACE+"selectBystrWhere", map);
+		return list.get(0);
 	}
 }

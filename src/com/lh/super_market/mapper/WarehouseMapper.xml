@@ -32,10 +32,6 @@
 	<select id="selectAll" resultMap="WarehouseMap">
 	 	SELECT * FROM MARKET_WAREHOUSE WHERE DEL = 0;
 	</select>
-
-	<select id="selectById" parameterType="int" resultMap="WarehouseMap">
-	 	select * from MARKET_WAREHOUSE where warehouse_id=#{warehouse_id}
-	</select>
 	
 	<insert id="insert" useGeneratedKeys="true" keyProperty="staff_id"  parameterType="com.lh.super_market.entity.Warehouse">
 		insert into MARKET_WAREHOUSE(

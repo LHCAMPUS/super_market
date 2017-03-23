@@ -37,10 +37,6 @@
 	<select id="selectAll" resultMap="GoodsMap">
 	 	SELECT * FROM MARKET_GOODS WHERE DEL = 0;
 	</select>
-
-	<select id="selectById" parameterType="int" resultMap="GoodsMap">
-	 	select * from eb_goods where gid=#{gid}
-	</select>
 	
 	<insert id="insert" useGeneratedKeys="true" keyProperty="staff_id"  parameterType="com.lh.super_market.entity.Goods">
 		insert into MARKET_GOODS(

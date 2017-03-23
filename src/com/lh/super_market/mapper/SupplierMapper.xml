@@ -34,10 +34,6 @@
 	<select id="selectAll" resultMap="SupplierMap">
 	 	SELECT * FROM MARKET_SUPPLIER
 	</select>
-
-	<select id="selectById" parameterType="int" resultMap="SupplierMap">
-	 	select * from eb_goods where gid=#{gid}
-	</select>
 	
 	<insert id="insert" useGeneratedKeys="true" keyProperty="supplier_id"  parameterType="com.lh.super_market.entity.Supplier">
 		insert into MARKET_SUPPLIER(
@@ -53,15 +49,24 @@
 	
 	
 	<update id="update"  parameterType="com.lh.super_market.entity.Supplier" >
-		update eb_goods set gname=#{gname},price=#{price},offset=#{offset},
-			publishTime=#{publishTime},total=#{total},src=#{src},del=#{del}
-		where gid=#{gid}
+		update 
+			MARKET_SUPPLIER
+	    set 
+	    	supplier_name=#{supplier_name},
+	    	supplier_person=#{supplier_person},
+	    	supplier_address=#{supplier_address},
+			supplier_phone=#{supplier_phone},
+			del=#{del}
+		where supplier_id=#{supplier_id}
 	</update>
 	
  	
   <delete id="deleteByPrimaryKey" parameterType="int">
-    update  eb_goods set del=1
-    where gid = #{gid}
+	    update  
+	    	MARKET_SUPPLIER
+	    set 
+	    	del=1
+	    where supplier_id=#{supplier_id}
   </delete>
 
 </mapper>

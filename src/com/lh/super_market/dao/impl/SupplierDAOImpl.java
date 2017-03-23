@@ -1,5 +1,6 @@
 package com.lh.super_market.dao.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.lh.super_market.dao.SupplierDAO;
+import com.lh.super_market.entity.Staff;
 import com.lh.super_market.entity.Supplier;
 
 @Repository
@@ -26,12 +28,14 @@ public class SupplierDAOImpl implements SupplierDAO{
 
 	@Override
 	public boolean update(Supplier model) {
-		return false;
+		int result = sqlSessionTemplate.update(NAMESPACE+"update", model);
+		return result > 0 ? true : false;
 	}
 
 	@Override
 	public boolean delete(int id) {
-		return false;
+		int result = sqlSessionTemplate.update(NAMESPACE+"deleteByPrimaryKey", id);
+		return result > 0 ? true : false;
 	}
 
 	@Override
@@ -42,14 +46,16 @@ public class SupplierDAOImpl implements SupplierDAO{
 
 	@Override
 	public List<Supplier> queryByStr(Map map) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Supplier> list = sqlSessionTemplate.selectList(NAMESPACE+"selectBystrWhere", map);
+		return list;
 	}
 
 	@Override
 	public Supplier queryById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("strWhere", "supplier_id="+id);
+		List<Supplier> list = sqlSessionTemplate.selectList(NAMESPACE+"selectBystrWhere", map);
+		return list.get(0);
 	}
 
 }

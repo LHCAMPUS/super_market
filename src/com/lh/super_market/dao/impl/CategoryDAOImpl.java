@@ -28,12 +28,14 @@ public class CategoryDAOImpl implements CategoryDAO{
 
 	@Override
 	public boolean update(Category model) {
-		return false;
+		int result = sqlSessionTemplate.update(NAMESPACE+"update", model);
+		return result > 0 ? true : false;
 	}
 
 	@Override
 	public boolean delete(int id) {
-		return false;
+		int result = sqlSessionTemplate.update(NAMESPACE+"deleteByPrimaryKey", id);
+		return result > 0 ? true : false;
 	}
 
 	@Override
@@ -44,8 +46,8 @@ public class CategoryDAOImpl implements CategoryDAO{
 
 	@Override
 	public List<Category> queryByStr(Map map) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Category> list = sqlSessionTemplate.selectList(NAMESPACE+"selectBystrWhere", map);
+		return list;
 	}
 	
 	public Category queryById(int id) {
