@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <base href="<%=basePath%>">
-    <title>商品类别信息</title>
+    <title>仓库信息</title>
 	<link type="text/css" rel="stylesheet" href="css/comm.css"/>
 	<style>
 		table tr{
@@ -28,25 +28,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <div class="title">商品类别管理 > 商品类别列表</div>
+    <div class="title">仓库管理 > 仓库列表</div>
 		<div class="form_box">
 			<form>
 				<table border=1 style="text-align:center">
 					<tr>
-						<th>编号</th>
-						<th>商品类别名称</th>
-						<th>商品类别备注</th>
+						<th>仓库编号</th>
+						<th>仓库名</th>
+						<th>仓库地址</th>
 						<th>操作</th>
 					</tr>
-					<c:forEach var="category" items="${list }">
+					<c:forEach var="warehouse" items="${list }">
 						<tr>
-							<td>${category.category_id }</td>
-							<td>${category.category_name }</td>
-							<td>${category.category_remark }</td>
+							<td>${warehouse.warehouse_id }</td>
+							<td>${warehouse.warehouse_name }</td>
+							<td>${warehouse.warehouse_address }</td>
 							<td>
-								<a href="category/updateCategory.do?id=${category.category_id }">修改</a>
+								<a href="warehouse/updateWarehouse.do?id=${warehouse.warehouse_id }">编辑</a>
 								&nbsp;&nbsp;
-								<a href="category/deleteCategory.do?id=${category.category_id }">删除</a>
+								<a href="warehouse/deleteWarehouse.do?id=${warehouse.warehouse_id }">删除</a>
 							</td>
 						</tr>
 					</c:forEach>

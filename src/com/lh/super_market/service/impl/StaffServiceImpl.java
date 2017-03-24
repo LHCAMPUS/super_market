@@ -34,7 +34,6 @@ public class StaffServiceImpl implements StaffService{
 
 	@Override
 	public int add(Staff model) {
-		System.err.println("sex:"+model.getStaff_sex());
 		model.setDel(0);
 		return staffDAOImpl.add(model);
 	}

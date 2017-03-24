@@ -20,6 +20,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<form action="goods/updateGoods.do" method="post">
 				<table>
 					<tr>
+						<td width="15%" align="right">编号:</td>
+						<td>
+							<input type="text" name="goods_id" value="${goods.goods_id }" class="txt" required readonly/>
+						</td>
+					</tr>
+					<tr>
 						<td width="15%" align="right">名称:</td>
 						<td>
 							<input type="text" name="goods_name" value="${goods.goods_name }" class="txt" required placeholder="请输入名称"/>

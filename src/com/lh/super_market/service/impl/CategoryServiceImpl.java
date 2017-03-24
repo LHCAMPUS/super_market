@@ -40,8 +40,7 @@ public class CategoryServiceImpl implements CategoryService{
 
 	@Override
 	public List<Category> queryByStr(Map map) {
-		// TODO Auto-generated method stub
-		return null;
+		return categoryDAOImpl.queryByStr(map);
 	}
 
 	@Override

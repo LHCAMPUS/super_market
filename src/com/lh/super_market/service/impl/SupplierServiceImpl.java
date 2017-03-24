@@ -40,8 +40,7 @@ public class SupplierServiceImpl implements SupplierService{
 
 	@Override
 	public List<Supplier> queryByStr(Map map) {
-		// TODO Auto-generated method stub
-		return null;
+		return supplierDAOImpl.queryByStr(map);
 	}
 
 	@Override

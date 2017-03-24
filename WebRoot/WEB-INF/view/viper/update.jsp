@@ -22,7 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<tr>
 						<td width="15%" align="right">会员编号:</td>
 						<td>
-							<input type="text" name="vip_no" class="txt" value="${viper.vip_no }" required placeholder="请输入姓名"/>
+							<input type="text" name="vip_no" class="txt" value="${viper.vip_no }" required readonly/>
 						</td>
 					<tr>
 					<tr>

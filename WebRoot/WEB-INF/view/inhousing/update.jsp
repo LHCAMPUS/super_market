@@ -20,39 +20,45 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<form action="inhousing/updateInhousing.do" method="post">
 				<table>
 					<tr>
-						<td width="15%" align="right">姓名:</td>
+						<td width="15%" align="right">编号:</td>
 						<td>
-							<input type="text" name="staff_name" class="txt" value="${staff.staff_name }" required placeholder="请输入姓名"/>
+							<input type="text" name="inhousing_id" class="txt" value="${inhousing.inhousing_id }" required readonly/>
 						</td>
 					<tr>
 					<tr>
-						<td align="right" valign="top">年龄:</td>
+						<td width="15%" align="right">商品ID:</td>
 						<td>
-							<input type="text" name="staff_age" value="${staff.staff_age }" required  class="txt" placeholder="请输入年龄"/>
+							<input type="text" name="goods_id" class="txt" value="${goods.goods_id }" required placeholder="请输入商品ID"/>
 						</td>
 					<tr>
 					<tr>
-						<td align="right" valign="top">手机:</td>
+						<td align="right" valign="top">商品名:</td>
 						<td>
-							<input type="text" name="staff_phone" value="${staff.staff_phone }" required  class="txt" placeholder="请输入手机"/>						
+							<input type="text" name="goods_name" value="${goods.goods_name }" required  class="txt" placeholder="请输入商品名"/>
 						</td>
 					<tr>
 					<tr>
-						<td align="right" valign="top">职称:</td>
+						<td align="right" valign="top">数量:</td>
 						<td>
-							<input type="text" name="staff_title" value="${staff.staff_title }" required   class="txt" placeholder="请输入职称"/>
+							<input type="text" name="goods_counts" value="${goods.goods_counts }" required  class="txt" placeholder="请输入商品数量"/>						
 						</td>
 					<tr>
 					<tr>
-						<td align="right" valign="top">工资:</td>
+						<td align="right" valign="top">供应商ID:</td>
 						<td>
-							<input type="text" name="staff_wage" value="${staff.staff_wage }" required  class="txt" placeholder="请输入工资"/>
+							<input type="text" name="supplier_id" value="${supplier.supplier_id }" required   class="txt" placeholder="请输入供应商ID"/>
 						</td>
 					<tr>
 					<tr>
-						<td align="right" valign="top">地址:</td>
+						<td align="right" valign="top">仓库ID:</td>
 						<td>
-							<input type="text" name="staff_address" value="${staff.staff_address }" required  class="txt" placeholder="请输入地址"/>
+							<input type="text" name="warehouse_id" value="${warehouse.warehouse_id }" required  class="txt" placeholder="请输入仓库ID"/>
+						</td>
+					<tr>
+					<tr>
+						<td align="right" valign="top">入库时间:</td>
+						<td>
+							<input type="date" name="inhousing_date" value="${inhousing.inhousing_date }" required  class="txt" placeholder="请选择入库时间"/>
 						</td>
 					<tr>
 					<tr>
@@ -61,7 +67,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</td>
 					<tr>
 				</table>
-				<input type="hidden" name="staff_id" value="${staff.staff_id }" />
+				<input type="hidden" name="inhousing_id" value="${inhousing.inhousing_id }" />
 			</form>
 		</div>
 	</body>
