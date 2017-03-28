@@ -1,6 +1,12 @@
 package com.lh.super_market.web;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,5 +42,41 @@ public class SupplierController {
 		return "supplier/add";
 	}
 	
+	@RequestMapping(value = "/updateSupplier.do", method = RequestMethod.GET)
+	public String upSupplier(String id, Model model){
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("strWhere", "Supplier_id="+id);
+		List<Supplier> list = supplierServiceImpl.queryByStr(map);
+		model.addAttribute("supplier", list.get(0));
+		return "supplier/update";
+	}
+	
+	@RequestMapping(value = "/updateSupplier.do", method = RequestMethod.POST)
+	public String upSupplierInfo(Supplier supplier, HttpServletResponse response){
+		boolean b = supplierServiceImpl.update(supplier);
+		outStr(b, response);
+		return null;
+	}
+	
+	@RequestMapping(value = "/deleteSupplier.do", method = RequestMethod.GET)
+	public String deleteSupplier(String id, HttpServletResponse response){
+		boolean b = supplierServiceImpl.delete(Integer.parseInt(id));
+		outStr(b, response);
+		return null;
+	}
+	
+	public void outStr(boolean b, HttpServletResponse response){
+		try {
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter out=response.getWriter();
+			if(b){
+				out.println("<script>alert('操作成功');window.location.href='supplierList.do'</script>");
+			}else{
+				out.println("<script>alert('操作失败');window.location.href='supplierList.do'</script>");
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 	
 }
