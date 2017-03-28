@@ -40,7 +40,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	 <script type="text/javascript">
    	 	$(document).ready(function(){
    	 		 $("#loginBtn").click(function(){
-   	 			 alert("1222112");
    	 			if($("#user").val()!=null&&$("#user").val()!=""&&$("#passw").val()!=null&&$("#passw").val()!=""){
 	   	 			$.ajax({
 	   	 				url : "<%=path%>/loginVer.do",

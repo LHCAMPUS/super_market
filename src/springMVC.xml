@@ -29,27 +29,13 @@
     </bean>
     <mvc:resources mapping="/static/**" location="/WEB-INF/static/" />
     
-<!--     <mvc:interceptors>
-	全局拦截器
-    	<bean class="com.softeem.interceptor.SessionTimeOutInterceptor">
-    		<property name="allowsUrl">
-    			<array>
-    				<value>/login</value>
-    				<value>/js</value>
-    				<value>/css</value>
-    				<value>/images</value>
-    			</array>
-    		</property>
-    	</bean>
-    	局部拦截器 配置了地址
+     <mvc:interceptors>
     	<mvc:interceptor>
-    		<mvc:mapping path="/say.do"/>
-    		<bean class="com.softeem.interceptor.ZhangHuaInterceptor"></bean>
+    		<mvc:mapping path="/*.do"/>
+    		<mvc:exclude-mapping path="/login.do"/>
+    		<mvc:exclude-mapping path="/loginVer.do"/>
+    		<bean class="com.lh.super_market.interceptor.MyInterceptor"></bean>
     	</mvc:interceptor>
     </mvc:interceptors>
-    配置支持文件上传 CommonsMultipartResolver 实现文件上传的类(非abstract类)
-    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>
-	配置上传路径
-	<mvc:resources location="/upload/" mapping="/upload/**"></mvc:resources> -->
 	
 </beans>
