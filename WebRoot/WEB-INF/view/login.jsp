@@ -16,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 	<link href="css/login.css" type="text/css" rel="stylesheet">
   </head>
   
@@ -25,17 +25,45 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="message">沃尔玛超市管理系统-管理登录</div>
     <div id="darkbannerwrap"></div>
     
-    <form method="post">
+    <form method="post" action="login.do">
 		<input name="action" value="main" type="hidden">
-		<input name="username" placeholder="用户名" required="" type="text">
+		<input name="user" id="user" placeholder="用户名" required="" type="text">
 		<hr class="hr15">
-		<input name="password" placeholder="密码" required="" type="password">
+		<input id="passw" name="passw" placeholder="密码" required="" type="password">
 		<hr class="hr15">
-		<input value="登录" style="width:100%;" type="submit" onclick="window.open('main.do')">
+		<input value="登录" style="width:100%;" type="submit" id="loginBtn" >
 		<hr class="hr20">
 		帮助 <a onClick="alert('请联系管理员')">忘记密码</a>
 	</form>
 
-</div>
+	</div>
+	 <script type="text/javascript">
+   	 	$(document).ready(function(){
+   	 		 $("#loginBtn").click(function(){
+   	 			 alert("1222112");
+   	 			if($("#user").val()!=null&&$("#user").val()!=""&&$("#passw").val()!=null&&$("#passw").val()!=""){
+	   	 			$.ajax({
+	   	 				url : "<%=path%>/loginVer.do",
+	   	 				type : "POST",
+	   	 				async : false,
+	   	 				data : 
+	   	 				{
+	   	 					user : $("#user").val(),
+	   	 					passw : $("#passw").val()
+	   	 				},
+	   	 				dataType : 'json',
+	   	 				success : function(data){
+	   	 					 var pass = document.getElementById("passw");
+	   	 					 if(data.status != "OK"){
+	   	 						pass.setCustomValidity(data.comment);  
+	   	 					 }else{
+	   	 						pass.setCustomValidity("");
+	   	 					 }
+	   	 				} 
+	   	 			});  
+   	 			}
+   	 		});   
+   	 	});	
+   	  </script>
   </body>
 </html>

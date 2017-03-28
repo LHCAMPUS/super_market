@@ -32,5 +32,6 @@
 		<mapper resource="com/lh/super_market/mapper/OuthousingMapper.xml" />
 		<mapper resource="com/lh/super_market/mapper/WarehouseMapper.xml" />
 		<mapper resource="com/lh/super_market/mapper/ViperMapper.xml" />
+		<mapper resource="com/lh/super_market/mapper/UserMapper.xml" />
 	</mappers>
 </configuration>
