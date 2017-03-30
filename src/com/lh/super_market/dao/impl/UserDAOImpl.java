@@ -8,7 +8,10 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.lh.super_market.dao.UserDAO;
+import com.lh.super_market.entity.Supplier;
 import com.lh.super_market.entity.User;
 
 @Repository
@@ -62,5 +65,13 @@ public class UserDAOImpl implements UserDAO{
 		map.put("strWhere", "username='"+username+"'");
 		List<User> list = sqlSessionTemplate.selectList(NAMESPACE+"selectBystrWhere", map);
 		return list.get(0);
+	}
+
+	@Override
+	public PageInfo<User> queryByPage(int pageIndex, int pageSize, Map map) {
+		PageHelper.startPage(pageIndex,pageSize);
+		List<User> list = sqlSessionTemplate.selectList(NAMESPACE+"selectBystrWhere",map);
+		PageInfo<User> page = new PageInfo<User>(list);
+		return page;
 	}
 }

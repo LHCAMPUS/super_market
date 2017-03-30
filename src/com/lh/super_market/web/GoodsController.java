@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.github.pagehelper.PageInfo;
 import com.lh.super_market.entity.Category;
 import com.lh.super_market.entity.Goods;
 import com.lh.super_market.entity.Warehouse;
@@ -37,9 +38,12 @@ public class GoodsController {
 	private WarehouseServiceImpl warehouseServiceImpl;
 	
 	@RequestMapping("/goodsList.do")
-	public String query(Model model){
-		List<Goods> list = goodsServiceImpl.query();
-		model.addAttribute("list", list);
+	public String query(String pageIndex, String pageSize, String strWhere, Model model){
+		PageInfo<Goods> list = goodsServiceImpl.queryByPage(Integer.parseInt(pageIndex), 2, strWhere);
+		model.addAttribute("list", list.getList());
+		model.addAttribute("pageCount", list.getPages());
+		model.addAttribute("currentPage", list.getPageNum());
+		model.addAttribute("count", list.getSize());
 		return "goods/list";
 	}
 	

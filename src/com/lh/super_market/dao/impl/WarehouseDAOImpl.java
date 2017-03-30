@@ -8,8 +8,11 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.lh.super_market.dao.WarehouseDAO;
 import com.lh.super_market.entity.Category;
+import com.lh.super_market.entity.Viper;
 import com.lh.super_market.entity.Warehouse;
 
 @Repository
@@ -55,6 +58,14 @@ public class WarehouseDAOImpl implements WarehouseDAO{
 		map.put("strWhere", "warehouse_id="+id);
 		List<Warehouse> list = sqlSessionTemplate.selectList(NAMESPACE+"selectBystrWhere", map);
 		return list.get(0);
+	}
+
+	@Override
+	public PageInfo<Warehouse> queryByPage(int pageIndex, int pageSize, Map map) {
+		PageHelper.startPage(pageIndex,pageSize);
+		List<Warehouse> list = sqlSessionTemplate.selectList(NAMESPACE+"selectBystrWhere",map);
+		PageInfo<Warehouse> page = new PageInfo<Warehouse>(list);
+		return page;
 	}
 
 }

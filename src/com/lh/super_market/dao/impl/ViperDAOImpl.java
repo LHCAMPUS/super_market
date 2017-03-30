@@ -8,8 +8,11 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.lh.super_market.dao.ViperDAO;
 import com.lh.super_market.entity.Supplier;
+import com.lh.super_market.entity.User;
 import com.lh.super_market.entity.Viper;
 
 @Repository
@@ -56,5 +59,13 @@ public class ViperDAOImpl implements ViperDAO{
 		map.put("strWhere", "viper_id="+id);
 		List<Viper> list = sqlSessionTemplate.selectList(NAMESPACE+"selectBystrWhere", map);
 		return list.get(0);
+	}
+
+	@Override
+	public PageInfo<Viper> queryByPage(int pageIndex, int pageSize, Map map) {
+		PageHelper.startPage(pageIndex,pageSize);
+		List<Viper> list = sqlSessionTemplate.selectList(NAMESPACE+"selectBystrWhere",map);
+		PageInfo<Viper> page = new PageInfo<Viper>(list);
+		return page;
 	}
 }

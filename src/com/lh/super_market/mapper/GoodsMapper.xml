@@ -32,10 +32,11 @@
 		<if test="strWhere!=null and strwhere!=''">
 			and ${strWhere}
 		</if>
+		    ORDER BY GOODS_ID;
 	</select>
 
 	<select id="selectAll" resultMap="GoodsMap">
-	 	SELECT * FROM MARKET_GOODS WHERE DEL = 0;
+	 	SELECT * FROM MARKET_GOODS WHERE DEL = 0 ORDER BY GOODS_ID;
 	</select>
 	
 	<insert id="insert" useGeneratedKeys="true" keyProperty="staff_id"  parameterType="com.lh.super_market.entity.Goods">

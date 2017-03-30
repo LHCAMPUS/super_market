@@ -25,6 +25,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		tr td a:hover{
 			color: #1E90FF;
 		}
+		#sp,#ap
+		{
+			width:30px;
+			height:30px;
+			display:inline-block;
+			line-height:30px;
+			border:1px solid lightblue;
+			border-radius:3px;
+			text-decoration:none;		
+		}
+		#sp
+		{
+			color:white;
+			background-color:lightgreen;
+		}
 	</style>
     
   </head>
@@ -62,6 +77,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</td>
 						</tr>
 					</c:forEach>
+					<tr>
+	   					<td colspan="4" align="center">
+	   						<a href="goods/goodsList.do?pageIndex=1">首页</a>
+	   						<a href="goods/goodsList.do?pageIndex=${currentPage-1}">上一页</a>
+	   							<c:forEach begin="1" end="${pageCount}" varStatus="v">
+	   								<c:choose>
+	   									<c:when test="${v.count==currentPage}">
+	   										<span id="sp">${v.count}</span>
+	   									</c:when>
+	   									<c:otherwise>
+	   										<a  id="ap" href="goods/goodsList.do?pageIndex=${v.count}">${v.count}</a>
+	   									</c:otherwise>
+	   								</c:choose>  							
+	   							</c:forEach>
+	   						<a href="goods/goodsList.do?pageIndex=${currentPage+1}">下一页</a>
+	   						<a href="goods/goodsList.do?pageIndex=${pageCount}">尾页</a>
+	   					</td>
+   					</tr>
 				</table>
 			</form>
 		</div>

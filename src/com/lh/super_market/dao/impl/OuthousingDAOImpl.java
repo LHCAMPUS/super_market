@@ -8,6 +8,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.lh.super_market.dao.OuthousingDAO;
 import com.lh.super_market.entity.Inhousing;
 import com.lh.super_market.entity.Outhousing;
@@ -56,5 +58,13 @@ public class OuthousingDAOImpl implements OuthousingDAO{
 		map.put("strWhere", "outhousing_id="+id);
 		List<Outhousing> list = sqlSessionTemplate.selectList(NAMESPACE+"selectBystrWhere", map);
 		return list.get(0);
+	}
+
+	@Override
+	public PageInfo<Outhousing> queryByPage(int pageIndex, int pageSize, Map map) {
+		PageHelper.startPage(pageIndex,pageSize);
+		List<Outhousing> list = sqlSessionTemplate.selectList(NAMESPACE+"selectBystrWhere",map);
+		PageInfo<Outhousing> page = new PageInfo<Outhousing>(list);
+		return page;
 	}
 }

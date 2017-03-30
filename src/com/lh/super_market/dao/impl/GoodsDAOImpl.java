@@ -8,6 +8,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.lh.super_market.dao.GoodsDAO;
 import com.lh.super_market.entity.Goods;
 
@@ -21,7 +23,9 @@ public class GoodsDAOImpl implements GoodsDAO{
 	
 	@Override
 	public List<Goods> query() {
+		PageHelper.startPage(2,2);
 		List<Goods> list = sqlSessionTemplate.selectList(NAMESPACE+"selectAll");
+		PageInfo<Goods> page = new PageInfo<Goods>(list);
 		return list;
 	}
 
@@ -55,5 +59,13 @@ public class GoodsDAOImpl implements GoodsDAO{
 		map.put("strWhere", "Goods_id="+id);
 		List<Goods> list = sqlSessionTemplate.selectList(NAMESPACE+"selectBystrWhere", map);
 		return list.get(0);
+	}
+
+	@Override
+	public PageInfo<Goods> queryByPage(int pageIndex, int pageSize, Map map) {
+		PageHelper.startPage(pageIndex,pageSize);
+		List<Goods> list = sqlSessionTemplate.selectList(NAMESPACE+"selectBystrWhere",map);
+		PageInfo<Goods> page = new PageInfo<Goods>(list);
+		return page;
 	}
 }

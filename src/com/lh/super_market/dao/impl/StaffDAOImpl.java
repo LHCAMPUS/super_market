@@ -8,6 +8,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.lh.super_market.dao.StaffDAO;
 import com.lh.super_market.entity.Outhousing;
 import com.lh.super_market.entity.Staff;
@@ -56,5 +58,13 @@ public class StaffDAOImpl implements StaffDAO{
 		map.put("strWhere", "staff_id="+id);
 		List<Staff> list = sqlSessionTemplate.selectList(NAMESPACE+"selectBystrWhere", map);
 		return list.get(0);
+	}
+
+	@Override
+	public PageInfo<Staff> queryByPage(int pageIndex, int pageSize, Map map) {
+		PageHelper.startPage(pageIndex,pageSize);
+		List<Staff> list = sqlSessionTemplate.selectList(NAMESPACE+"selectBystrWhere",map);
+		PageInfo<Staff> page = new PageInfo<Staff>(list);
+		return page;
 	}
 }

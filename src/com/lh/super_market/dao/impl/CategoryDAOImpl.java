@@ -8,6 +8,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.lh.super_market.dao.CategoryDAO;
 import com.lh.super_market.entity.Category;
 import com.lh.super_market.entity.Goods;
@@ -55,6 +57,14 @@ public class CategoryDAOImpl implements CategoryDAO{
 		map.put("strWhere", "category_id="+id);
 		List<Category> list = sqlSessionTemplate.selectList(NAMESPACE+"selectBystrWhere", map);
 		return list.get(0);
+	}
+
+	@Override
+	public PageInfo<Category> queryByPage(int pageIndex, int pageSize, Map map) {
+		PageHelper.startPage(pageIndex,pageSize);
+		List<Category> list = sqlSessionTemplate.selectList(NAMESPACE+"selectBystrWhere",map);
+		PageInfo<Category> page = new PageInfo<Category>(list);
+		return page;
 	}
 
 }

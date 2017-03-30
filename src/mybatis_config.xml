@@ -1,27 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-<!-- 	<settings> -->
-<!-- 	默认值default=true true false -->
-<!-- 		<setting name="cacheEnabled" value="true"/> -->
-<!-- 	</settings> -->
-<!-- <typeAliases>
-	<typeAlias type="com.softeem.edu.dto.Dept" alias="dept"/>
-</typeAliases> -->
-<!-- 	<plugins>
-		<plugin interceptor="com.softeem.mybatispage.MybatisPageInterceptor"></plugin>
-	</plugins> -->
-	<!-- <environments default="myexample">
-		<environment id="myexample">
-			<transactionManager type="JDBC" />
-			<dataSource type="POOLED">
-				<property name="driver" value="oracle.jdbc.driver.OracleDriver" />
-				<property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:orcl" />
-				<property name="username" value="scott" />
-				<property name="password" value="a123" />
-			</dataSource>
-		</environment>
-	</environments> -->
+<!-- 配置分页插件 -->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageHelper">
+            <!-- 设置数据库类型 Oracle,Mysql,MariaDB,SQLite,Hsqldb,PostgreSQL六种数据库-->        
+            <property name="dialect" value="sqlserver"/>
+            <!-- 设置为true时，会将RowBounds第一个参数offset当成pageNum页码使用 -->
+	        <!-- 和startPage中的pageNum效果一样-->
+	        <property name="offsetAsPageNum" value="true"></property>
+	         <!-- 3.3.0版本可用 - 分页参数合理化，默认false禁用 -->
+	        <!-- 启用合理化时，如果pageNum<1会查询第一页，如果pageNum>pages会查询最后一页 -->
+	        <!-- 禁用合理化时，如果pageNum<1或pageNum>pages会返回空数据 -->
+	        <property name="reasonable" value="true"></property>
+        </plugin>
+    </plugins>
 	<!-- 所有的 关于表的映射关系 xml都必须要在此处注册 -->
 	<mappers>
 		<mapper resource="com/lh/super_market/mapper/StaffMapper.xml" />

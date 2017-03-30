@@ -8,7 +8,10 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.lh.super_market.dao.SupplierDAO;
+import com.lh.super_market.entity.Outhousing;
 import com.lh.super_market.entity.Staff;
 import com.lh.super_market.entity.Supplier;
 
@@ -56,6 +59,14 @@ public class SupplierDAOImpl implements SupplierDAO{
 		map.put("strWhere", "supplier_id="+id);
 		List<Supplier> list = sqlSessionTemplate.selectList(NAMESPACE+"selectBystrWhere", map);
 		return list.get(0);
+	}
+
+	@Override
+	public PageInfo<Supplier> queryByPage(int pageIndex, int pageSize, Map map) {
+		PageHelper.startPage(pageIndex,pageSize);
+		List<Supplier> list = sqlSessionTemplate.selectList(NAMESPACE+"selectBystrWhere",map);
+		PageInfo<Supplier> page = new PageInfo<Supplier>(list);
+		return page;
 	}
 
 }

@@ -1,11 +1,14 @@
 package com.lh.super_market.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.lh.super_market.dao.impl.GoodsDAOImpl;
 import com.lh.super_market.entity.Goods;
 import com.lh.super_market.service.GoodsService;
@@ -49,4 +52,10 @@ public class GoodsServiceImpl implements GoodsService{
 		return null;
 	}
 
+	public PageInfo<Goods> queryByPage(int pageIndex, int pageSize, String strWhere) {
+		Map<String, String> map = new HashMap<String, String>();
+		String str = strWhere==null?"1=1":strWhere;
+		map.put("strWhere", str);
+		return goodsDAOImpl.queryByPage(pageIndex, pageSize, map);
+	}
 }

@@ -8,6 +8,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.lh.super_market.dao.InhousingDAO;
 import com.lh.super_market.entity.Category;
 import com.lh.super_market.entity.Inhousing;
@@ -56,5 +58,13 @@ public class InhousingDAOImpl implements InhousingDAO{
 		map.put("strWhere", "inhousing_id="+id);
 		List<Inhousing> list = sqlSessionTemplate.selectList(NAMESPACE+"selectBystrWhere", map);
 		return list.get(0);
+	}
+
+	@Override
+	public PageInfo<Inhousing> queryByPage(int pageIndex, int pageSize, Map map) {
+		PageHelper.startPage(pageIndex,pageSize);
+		List<Inhousing> list = sqlSessionTemplate.selectList(NAMESPACE+"selectBystrWhere",map);
+		PageInfo<Inhousing> page = new PageInfo<Inhousing>(list);
+		return page;
 	}
 }
