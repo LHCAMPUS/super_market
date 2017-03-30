@@ -25,21 +25,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		tr td a:hover{
 			color: #1E90FF;
 		}
-		#sp,#ap
-		{
-			width:30px;
-			height:30px;
-			display:inline-block;
-			line-height:30px;
-			border:1px solid lightblue;
-			border-radius:3px;
-			text-decoration:none;		
-		}
-		#sp
-		{
-			color:white;
-			background-color:lightgreen;
-		}
 	</style>
     
   </head>

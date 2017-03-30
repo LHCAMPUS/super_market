@@ -13,8 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.github.pagehelper.PageInfo;
 import com.lh.super_market.entity.Staff;
 import com.lh.super_market.service.impl.StaffServiceImpl;
 
@@ -26,9 +26,12 @@ public class StaffController {
 	private StaffServiceImpl staffServiceImpl;
 	
 	@RequestMapping("/staffList.do")
-	public String query(Model model){
-		List<Staff> list = staffServiceImpl.query();
-		model.addAttribute("list", list);
+	public String query(String pageIndex, String pageSize, String strWhere, Model model){
+		PageInfo<Staff> list = staffServiceImpl.queryByPage(Integer.parseInt(pageIndex), 2, strWhere);
+		model.addAttribute("list", list.getList());
+		model.addAttribute("pageCount", list.getPages());
+		model.addAttribute("currentPage", list.getPageNum());
+		model.addAttribute("count", list.getSize());
 		return "staff/list";
 	}
 	

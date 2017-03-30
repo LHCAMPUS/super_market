@@ -82,3 +82,18 @@ a{
 	/* text-decoration:none; */
 	color:black;
 }
+#sp,#ap
+{
+	width:30px;
+	height:30px;
+	display:inline-block;
+	line-height:30px;
+	border:1px solid lightblue;
+	border-radius:3px;
+	text-decoration:none;		
+}
+#sp
+{
+	color:white;
+	background-color:lightgreen;
+}

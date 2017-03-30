@@ -28,13 +28,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<ul class="menu_main">
 					<li class="menu_first"><a>员工管理</a>
 						<ul>
-							<li><a href='staff/staffList.do' target="right">员工列表</a></li>
+							<li><a href='staff/staffList.do?pageIndex=1' target="right">员工列表</a></li>
 							<li><a href='staff/addStaff.do' target="right">员工添加</a></li>
 						</ul>
 					</li>
 					<li class="menu_first"><a>分类管理</a>
 						<ul>		
-							<li><a href='category/categoryList.do' target="right">分类列表</a></li>
+							<li><a href='category/categoryList.do?pageIndex=1' target="right">分类列表</a></li>
 							<li><a href='category/addCategory.do' target="right">分类添加</a></li>
 						</ul>
 					</li>
@@ -52,7 +52,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</li>
 					<li class="menu_first"><a>销售管理</a>
 						<ul>
-							<li><a href="" target="right">销售列表</a></li>
+							<li><a href="" target="right"?pageIndex=1>销售列表</a></li>
 							<li><a href="" target="right">销售添加</a></li>
 						</ul>
 					</li>
@@ -64,13 +64,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</li>
 					<li class="menu_first"><a>入库管理</a>
 						<ul>
-							<li><a href="inhousing/inhousingList.do" target="right">入库列表</a></li>
+							<li><a href="inhousing/inhousingList.do?pageIndex=1" target="right">入库列表</a></li>
 							<li><a href="inhousing/addInhousing.do" target="right">入库添加</a></li>
 						</ul>
 					</li>
 					<li class="menu_first"><a>出库管理</a>
 						<ul>
-							<li><a href="outhousing/outhousingList.do" target="right">出库列表</a></li>
+							<li><a href="outhousing/outhousingList.do?pageIndex=1" target="right">出库列表</a></li>
 							<li><a href="outhousing/addOuthousing.do" target="right">出库添加</a></li>
 						</ul>
 					</li>

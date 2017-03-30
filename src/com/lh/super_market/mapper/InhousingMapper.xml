@@ -27,11 +27,11 @@
 		SELECT 
 			<include refid="base_column_list"/> 
 		FROM 
-			MARKET_STAFF WHERE DEL=0
+			MARKET_INHOUSING WHERE DEL=0
 		<if test="strWhere!=null and strwhere!=''">
 			and ${strWhere}
 		</if>
-		ORDER BY STAFF_ID;
+		ORDER BY INHOUSING_ID;
 	</select>
 
 	<select id="selectAll" resultMap="InhousingMap">
