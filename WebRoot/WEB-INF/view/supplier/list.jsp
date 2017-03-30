@@ -11,20 +11,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <base href="<%=basePath%>">
     <title>供应商信息</title>
 	<link type="text/css" rel="stylesheet" href="css/comm.css"/>
-	<style>
-		table tr{
-			height:40px;
-			color:#000000;
-		}
-		table tr:hover{
-			background-color:#DCDCDC;
-			color:black;
-		}
-		tr td a:hover{
-			color: #1E90FF;
-		}
-	</style>
-    
   </head>
   
   <body>
@@ -48,14 +34,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<td>${supplier.supplier_address }</td>
 							<td>${supplier.supplier_phone }</td>
 							<td>
-								<a href="">修改</a>
+								<a href="supplier/updateSupplier.do?id=${supplier.supplier_id }">修改</a>
 								&nbsp;&nbsp;
-								<a href="">删除</a>
+								<a href="supplier/deleteSupplier.do?id=${supplier.supplier_id }">删除</a>
 							</td>
 						</tr>
 					</c:forEach>
 					<tr>
-	   					<td colspan="4" align="center">
+	   					<td colspan="6" text-align="center">
 	   						<a href="supplier/supplierList.do?pageIndex=1">首页</a>
 	   						<a href="supplier/supplierList.do?pageIndex=${currentPage-1}">上一页</a>
 	   							<c:forEach begin="1" end="${pageCount}" varStatus="v">

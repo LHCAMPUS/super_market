@@ -11,20 +11,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <base href="<%=basePath%>">
     <title>会员信息</title>
 	<link type="text/css" rel="stylesheet" href="css/comm.css"/>
-	<style>
-		table tr{
-			height:40px;
-			color:#000000;
-		}
-		table tr:hover{
-			background-color:#DCDCDC;
-			color:black;
-		}
-		tr td a:hover{
-			color: #1E90FF;
-		}
-	</style>
-    
   </head>
   
   <body>
@@ -46,14 +32,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<td>${viper.vip_idCard }</td>
 							<td>${viper.vip_integral }</td>
 							<td>
-								<a href="viper/updateViper.do?id=${viper.vip_id }">编辑</a>
+								<a href="viper/updateViper.do?id=${viper.vip_id }">修改</a>
 								&nbsp;&nbsp;
 								<a href="viper/deleteViper.do?id=${viper.vip_id }">删除</a>
 							</td>
 						</tr>
 					</c:forEach>
 					<tr>
-	   					<td colspan="4" align="center">
+	   					<td colspan="5" text-align="center">
 	   						<a href="viper/viperList.do?pageIndex=1">首页</a>
 	   						<a href="viper/viperList.do?pageIndex=${currentPage-1}">上一页</a>
 	   							<c:forEach begin="1" end="${pageCount}" varStatus="v">

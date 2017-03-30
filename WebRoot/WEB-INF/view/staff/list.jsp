@@ -11,20 +11,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <base href="<%=basePath%>">
     <title>员工信息</title>
 	<link type="text/css" rel="stylesheet" href="css/comm.css"/>
-	<style>
-		table tr{
-			height:40px;
-			color:#000000;
-		}
-		table tr:hover{
-			background-color:#DCDCDC;
-			color:black;
-		}
-		tr td a:hover{
-			color: #1E90FF;
-		}
-	</style>
-    
   </head>
   
   <body>
@@ -61,7 +47,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</tr>
 					</c:forEach>
 					<tr>
-	   					<td colspan="4" align="center">
+	   					<td colspan="9" text-align="center">
 	   						<a href="staff/staffList.do?pageIndex=1">首页</a>
 	   						<a href="staff/staffList.do?pageIndex=${currentPage-1}">上一页</a>
 	   							<c:forEach begin="1" end="${pageCount}" varStatus="v">

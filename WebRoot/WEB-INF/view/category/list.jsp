@@ -11,20 +11,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <base href="<%=basePath%>">
     <title>商品类别信息</title>
 	<link type="text/css" rel="stylesheet" href="css/comm.css"/>
-	<style>
-		table tr{
-			height:40px;
-			color:#000000;
-		}
-		table tr:hover{
-			background-color:#DCDCDC;
-			color:black;
-		}
-		tr td a:hover{
-			color: #1E90FF;
-		}
-	</style>
-    
   </head>
   
   <body>
@@ -51,7 +37,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</tr>
 					</c:forEach>
 					<tr>
-	   					<td colspan="4" align="center">
+						<td colspan="4" text-align="center">
+							<div id="page">
 	   						<a href="category/categoryList.do?pageIndex=1">首页</a>
 	   						<a href="category/categoryList.do?pageIndex=${currentPage-1}">上一页</a>
 	   							<c:forEach begin="1" end="${pageCount}" varStatus="v">
@@ -66,7 +53,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	   							</c:forEach>
 	   						<a href="category/categoryList.do?pageIndex=${currentPage+1}">下一页</a>
 	   						<a href="category/categoryList.do?pageIndex=${pageCount}">尾页</a>
-	   					</td>
+   							</div>
+   						</td>
    					</tr>
 				</table>
 			</form>

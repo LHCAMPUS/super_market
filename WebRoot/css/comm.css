@@ -79,10 +79,29 @@ th{
 	border:solid 1px #CCCCCC; 
 }
 a{
-	/* text-decoration:none; */
+	text-decoration: none;
+    color: black;
+    border-radius: 3px;
+    border: 1px solid #dfdfdf;
+    /* display: inline-block; */
+    padding: 5px 12px;
+	
+}
+table tr
+{
+	height:40px;
+	color:#000000;
+}
+table tr:hover
+{
+	background-color:#F9F9F9;
 	color:black;
 }
-#sp,#ap
+tr td a:hover{
+	background-color:#09F;
+	color:white;
+}
+/* #sp,#ap
 {
 	width:30px;
 	height:30px;
@@ -92,8 +111,13 @@ a{
 	border-radius:3px;
 	text-decoration:none;		
 }
+ */
 #sp
 {
-	color:white;
-	background-color:lightgreen;
+	background: #09F;
+    color: #FFF;
+    border: 1px solid #dfdfdf;
+    padding: 5px 12px;
+    border-radius: 3px;
 }
+
