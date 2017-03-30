@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.github.pagehelper.PageInfo;
 import com.lh.super_market.entity.Category;
 import com.lh.super_market.service.impl.CategoryServiceImpl;
 
@@ -25,9 +26,12 @@ public class CategoryController {
 	private CategoryServiceImpl categoryServiceImpl;
 	
 	@RequestMapping("/categoryList.do")
-	public String query(Model model){
-		List<Category> list = categoryServiceImpl.query();
-		model.addAttribute("list", list);
+	public String query(String pageIndex, String pageSize, String strWhere, Model model){
+		PageInfo<Category> list = categoryServiceImpl.queryByPage(Integer.parseInt(pageIndex), 2, strWhere);
+		model.addAttribute("list", list.getList());
+		model.addAttribute("pageCount", list.getPages());
+		model.addAttribute("currentPage", list.getPageNum());
+		model.addAttribute("count", list.getSize());
 		return "category/list";
 	}
 	

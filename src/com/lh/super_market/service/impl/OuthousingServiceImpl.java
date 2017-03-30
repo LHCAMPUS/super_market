@@ -1,11 +1,13 @@
 package com.lh.super_market.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageInfo;
 import com.lh.super_market.dao.impl.OuthousingDAOImpl;
 import com.lh.super_market.entity.Outhousing;
 import com.lh.super_market.service.OuthousingService;
@@ -47,6 +49,13 @@ public class OuthousingServiceImpl implements OuthousingService{
 	public Outhousing queryById(int id) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public PageInfo<Outhousing> queryByPage(int pageIndex, int pageSize, String strWhere) {
+		Map<String, String> map = new HashMap<String, String>();
+		String str = strWhere==null?"1=1":strWhere;
+		map.put("strWhere", str);
+		return outhousingDAOImpl.queryByPage(pageIndex, pageSize, map);
 	}
 
 }

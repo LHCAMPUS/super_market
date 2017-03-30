@@ -32,7 +32,7 @@
 		<if test="strWhere!=null and strwhere!=''">
 			and ${strWhere}
 		</if>
-		    ORDER BY GOODS_ID;
+		ORDER BY GOODS_ID;
 	</select>
 
 	<select id="selectAll" resultMap="GoodsMap">

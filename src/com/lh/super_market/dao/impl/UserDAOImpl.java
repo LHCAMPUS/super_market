@@ -11,7 +11,6 @@ import org.springframework.stereotype.Repository;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.lh.super_market.dao.UserDAO;
-import com.lh.super_market.entity.Supplier;
 import com.lh.super_market.entity.User;
 
 @Repository
@@ -64,7 +63,7 @@ public class UserDAOImpl implements UserDAO{
 		Map<String,String> map = new HashMap<String,String>();
 		map.put("strWhere", "username='"+username+"'");
 		List<User> list = sqlSessionTemplate.selectList(NAMESPACE+"selectBystrWhere", map);
-		return list.get(0);
+		return list.size()>0?list.get(0):null;
 	}
 
 	@Override

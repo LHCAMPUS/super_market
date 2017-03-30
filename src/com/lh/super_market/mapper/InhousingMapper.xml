@@ -31,6 +31,7 @@
 		<if test="strWhere!=null and strwhere!=''">
 			and ${strWhere}
 		</if>
+		ORDER BY STAFF_ID;
 	</select>
 
 	<select id="selectAll" resultMap="InhousingMap">

@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.github.pagehelper.PageInfo;
 import com.lh.super_market.entity.Inhousing;
 import com.lh.super_market.service.impl.InhousingServiceImpl;
 
@@ -25,9 +26,12 @@ public class InhousingController {
 	private InhousingServiceImpl inhousingServiceImpl;
 	
 	@RequestMapping("/inhousingList.do")
-	public String query(Model model){
-		List<Inhousing> list = inhousingServiceImpl.query();
-		model.addAttribute("list", list);
+	public String query(String pageIndex, String pageSize, String strWhere, Model model){
+		PageInfo<Inhousing> list = inhousingServiceImpl.queryByPage(Integer.parseInt(pageIndex), 2, strWhere);
+		model.addAttribute("list", list.getList());
+		model.addAttribute("pageCount", list.getPages());
+		model.addAttribute("currentPage", list.getPageNum());
+		model.addAttribute("count", list.getSize());
 		return "inhousing/list";
 	}
 	

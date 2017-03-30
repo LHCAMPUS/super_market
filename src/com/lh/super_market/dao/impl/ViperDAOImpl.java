@@ -11,8 +11,6 @@ import org.springframework.stereotype.Repository;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.lh.super_market.dao.ViperDAO;
-import com.lh.super_market.entity.Supplier;
-import com.lh.super_market.entity.User;
 import com.lh.super_market.entity.Viper;
 
 @Repository

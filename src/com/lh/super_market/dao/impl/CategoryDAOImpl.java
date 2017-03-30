@@ -12,7 +12,6 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.lh.super_market.dao.CategoryDAO;
 import com.lh.super_market.entity.Category;
-import com.lh.super_market.entity.Goods;
 
 @Repository
 public class CategoryDAOImpl implements CategoryDAO{

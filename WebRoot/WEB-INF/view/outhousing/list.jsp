@@ -56,6 +56,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</td>
 						</tr>
 					</c:forEach>
+					<tr>
+	   					<td colspan="4" align="center">
+	   						<a href="outhousing/outhousingList.do?pageIndex=1">首页</a>
+	   						<a href="outhousing/outhousingList.do?pageIndex=${currentPage-1}">上一页</a>
+	   							<c:forEach begin="1" end="${pageCount}" varStatus="v">
+	   								<c:choose>
+	   									<c:when test="${v.count==currentPage}">
+	   										<span id="sp">${v.count}</span>
+	   									</c:when>
+	   									<c:otherwise>
+	   										<a  id="ap" href="outhousing/outhousingList.do?pageIndex=${v.count}">${v.count}</a>
+	   									</c:otherwise>
+	   								</c:choose>  							
+	   							</c:forEach>
+	   						<a href="outhousing/outhousingList.do?pageIndex=${currentPage+1}">下一页</a>
+	   						<a href="outhousing/outhousingList.do?pageIndex=${pageCount}">尾页</a>
+	   					</td>
+   					</tr>
 				</table>
 			</form>
 		</div>

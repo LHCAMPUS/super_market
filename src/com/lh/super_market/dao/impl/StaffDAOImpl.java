@@ -11,7 +11,6 @@ import org.springframework.stereotype.Repository;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.lh.super_market.dao.StaffDAO;
-import com.lh.super_market.entity.Outhousing;
 import com.lh.super_market.entity.Staff;
 
 @Repository
