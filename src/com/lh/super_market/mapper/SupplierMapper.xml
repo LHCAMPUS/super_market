@@ -29,6 +29,7 @@
 		<if test="strWhere!=null and strwhere!=''">
 			and ${strWhere}
 		</if>
+		ORDER BY SUPPLIER_ID;
 	</select>
 
 	<select id="selectAll" resultMap="SupplierMap">

@@ -1,13 +1,16 @@
 package com.lh.super_market.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageInfo;
 import com.lh.super_market.dao.impl.WarehouseDAOImpl;
 import com.lh.super_market.entity.Category;
+import com.lh.super_market.entity.Viper;
 import com.lh.super_market.entity.Warehouse;
 import com.lh.super_market.service.WarehouseService;
 
@@ -50,4 +53,10 @@ public class WarehouseServiceImpl implements WarehouseService{
 		return warehouse;
 	}
 
+	public PageInfo<Warehouse> queryByPage(int pageIndex, int pageSize, String strWhere) {
+		Map<String, String> map = new HashMap<String, String>();
+		String str = strWhere==null?"1=1":strWhere;
+		map.put("strWhere", str);
+		return warehouseDAOImpl.queryByPage(pageIndex, pageSize, map);
+	}
 }

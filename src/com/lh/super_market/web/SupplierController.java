@@ -14,6 +14,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.github.pagehelper.PageInfo;
+import com.lh.super_market.entity.Goods;
 import com.lh.super_market.entity.Supplier;
 import com.lh.super_market.service.impl.SupplierServiceImpl;
 
@@ -25,9 +27,12 @@ public class SupplierController {
 	private SupplierServiceImpl supplierServiceImpl;
 	
 	@RequestMapping("/supplierList.do")
-	public String query(Model model){
-		List<Supplier> list = supplierServiceImpl.query();
-		model.addAttribute("list", list);
+	public String query(String pageIndex, String pageSize, String strWhere, Model model){
+		PageInfo<Supplier> list = supplierServiceImpl.queryByPage(Integer.parseInt(pageIndex), 2, strWhere);
+		model.addAttribute("list", list.getList());
+		model.addAttribute("pageCount", list.getPages());
+		model.addAttribute("currentPage", list.getPageNum());
+		model.addAttribute("count", list.getSize());
 		return "supplier/list";
 	}
 	

@@ -1,12 +1,15 @@
 package com.lh.super_market.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageInfo;
 import com.lh.super_market.dao.impl.SupplierDAOImpl;
+import com.lh.super_market.entity.Goods;
 import com.lh.super_market.entity.Supplier;
 import com.lh.super_market.service.SupplierService;
 
@@ -49,4 +52,10 @@ public class SupplierServiceImpl implements SupplierService{
 		return null;
 	}
 
+	public PageInfo<Supplier> queryByPage(int pageIndex, int pageSize, String strWhere) {
+		Map<String, String> map = new HashMap<String, String>();
+		String str = strWhere==null?"1=1":strWhere;
+		map.put("strWhere", str);
+		return supplierDAOImpl.queryByPage(pageIndex, pageSize, map);
+	}
 }

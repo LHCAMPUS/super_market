@@ -46,7 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</li>
 					<li class="menu_first"><a>会员管理</a>
 						<ul>
-							<li><a href="viper/viperList.do" target="right">会员列表</a></li>
+							<li><a href="viper/viperList.do?pageIndex=1" target="right">会员列表</a></li>
 							<li><a href="viper/addViper.do" target="right">会员添加</a></li>
 						</ul>
 					</li>
@@ -58,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</li>
 					<li class="menu_first"><a>供应商管理</a>
 						<ul>
-							<li><a href="supplier/supplierList.do" target="right">供应商列表</a></li>
+							<li><a href="supplier/supplierList.do?pageIndex=1" target="right">供应商列表</a></li>
 							<li><a href="supplier/addSupplier.do" target="right">供应商添加</a></li>
 						</ul>
 					</li>

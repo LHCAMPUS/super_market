@@ -1,12 +1,15 @@
 package com.lh.super_market.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageInfo;
 import com.lh.super_market.dao.impl.ViperDAOImpl;
+import com.lh.super_market.entity.Supplier;
 import com.lh.super_market.entity.Viper;
 import com.lh.super_market.service.ViperService;
 
@@ -47,6 +50,13 @@ public class ViperServiceImpl implements ViperService{
 	public Viper queryById(int id) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public PageInfo<Viper> queryByPage(int pageIndex, int pageSize, String strWhere) {
+		Map<String, String> map = new HashMap<String, String>();
+		String str = strWhere==null?"1=1":strWhere;
+		map.put("strWhere", str);
+		return viperDAOImpl.queryByPage(pageIndex, pageSize, map);
 	}
 
 }

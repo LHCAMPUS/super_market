@@ -27,6 +27,7 @@
 		<if test="strWhere!=null and strwhere!=''">
 			and ${strWhere}
 		</if>
+		ORDER BY WAREHOUSE_ID;
 	</select>
 
 	<select id="selectAll" resultMap="WarehouseMap">
