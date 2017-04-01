@@ -9,7 +9,6 @@
 
   <resultMap id="OuthousingMap" type="com.lh.super_market.entity.Outhousing">
     <result column="outhousing_id"  property="outhousing_id" />
-    <result column="goods_name" property="goods_name" />
     <result column="goods_counts" property="goods_counts" />
     <result column="outhousing_date" property="outhousing_date" />
     <result column="goods_id" property="goods_id" />
@@ -20,7 +19,7 @@
 
 
 	<sql id="base_column_list">
-		outhousing_id,goods_name,goods_counts,outhousing_date,goods_id,supplier_id,warehouse_id,del
+		outhousing_id,goods_counts,outhousing_date,goods_id,supplier_id,warehouse_id,del
 	</sql>
 	
 	<select id="selectBystrWhere" parameterType="java.util.Map" resultMap="OuthousingMap">
@@ -40,9 +39,8 @@
 	
 	<insert id="insert" useGeneratedKeys="true" keyProperty="outhousing_id"  parameterType="com.lh.super_market.entity.Outhousing">
 		insert into MARKET_OUTHOUSING(
-			goods_name,goods_counts,outhousing_date,goods_id,supplier_id,warehouse_id,del
+			goods_counts,outhousing_date,goods_id,supplier_id,warehouse_id,del
 		) values(
-			#{goods_name},
 			#{goods_counts},
 			#{outhousing_date},
 			#{goods_id},
@@ -57,7 +55,6 @@
 		update 
 			MARKET_OUTHOUSING
 	    set 
-	    	goods_name=#{goods_name},
 	    	goods_counts=#{goods_counts},
 	    	outhousing_date=#{outhousing_date},
 			goods_id=#{goods_id},

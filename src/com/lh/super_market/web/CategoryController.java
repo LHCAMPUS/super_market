@@ -74,9 +74,9 @@ public class CategoryController {
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out=response.getWriter();
 			if(b){
-				out.println("<script>alert('操作成功');window.location.href='categoryList.do'</script>");
+				out.println("<script>alert('操作成功');window.location.href='categoryList.do?pageIndex=1'</script>");
 			}else{
-				out.println("<script>alert('操作失败');window.location.href='categoryList.do'</script>");
+				out.println("<script>alert('操作失败');window.location.href='categoryList.do?pageIndex=1'</script>");
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

@@ -68,6 +68,10 @@ public class GoodsController {
 		map.put("strWhere", "Goods_id="+id);
 		List<Goods> list = goodsServiceImpl.queryByStr(map);
 		model.addAttribute("goods", list.get(0));
+		List<Category> categoryList = categoryServiceImpl.query();
+		List<Warehouse> warehouseList = warehouseServiceImpl.query();
+		model.addAttribute("categoryList", categoryList);
+		model.addAttribute("warehouseList", warehouseList);
 		return "goods/update";
 	}
 	
@@ -99,9 +103,9 @@ public class GoodsController {
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out=response.getWriter();
 			if(b){
-				out.println("<script>alert('操作成功');window.location.href='goodsList.do'</script>");
+				out.println("<script>alert('操作成功');window.location.href='goodsList.do?pageIndex=1'</script>");
 			}else{
-				out.println("<script>alert('操作失败');window.location.href='goodsList.do'</script>");
+				out.println("<script>alert('操作失败');window.location.href='goodsList.do?pageIndex=1'</script>");
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

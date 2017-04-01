@@ -19,8 +19,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<form>
 				<table border=1 style="text-align:center">
 					<tr>
-						<th>商品ID</th>
-						<th>商品名</th>
+						<th>出库ID</th>
+						<th>商品</th>
 						<th>数量</th>
 						<th>供应商ID</th>
 						<th>仓库ID</th>
@@ -29,8 +29,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</tr>
 					<c:forEach var="outhousing" items="${list }">
 						<tr>
+							<td>${outhousing.outhousing_id }</td>
 							<td>${outhousing.goods_id }</td>
-							<td>${outhousing.goods_name }</td>
 							<td>${outhousing.goods_counts }</td>
 							<td>${outhousing.supplier_id }</td>
 							<td>${outhousing.warehouse_id }</td>

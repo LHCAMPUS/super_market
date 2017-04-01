@@ -1,11 +1,11 @@
 package com.lh.super_market.entity;
 
-import java.util.Date;
+import java.sql.Date;
+
 
 public class Outhousing {
 
 	private int outhousing_id;
-	private String goods_name;
 	private int goods_counts;
 	private Date outhousing_date;
 	private int supplier_id;
@@ -17,12 +17,6 @@ public class Outhousing {
 	}
 	public void setOuthousing_id(int outhousing_id) {
 		this.outhousing_id = outhousing_id;
-	}
-	public String getGoods_name() {
-		return goods_name;
-	}
-	public void setGoods_name(String goods_name) {
-		this.goods_name = goods_name;
 	}
 	public int getGoods_counts() {
 		return goods_counts;

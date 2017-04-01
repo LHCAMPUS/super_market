@@ -48,8 +48,7 @@ public class GoodsServiceImpl implements GoodsService{
 
 	@Override
 	public Goods queryById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return goodsDAOImpl.queryById(id);
 	}
 
 	public PageInfo<Goods> queryByPage(int pageIndex, int pageSize, String strWhere) {

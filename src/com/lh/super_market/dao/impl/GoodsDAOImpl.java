@@ -23,9 +23,7 @@ public class GoodsDAOImpl implements GoodsDAO{
 	
 	@Override
 	public List<Goods> query() {
-		PageHelper.startPage(2,2);
 		List<Goods> list = sqlSessionTemplate.selectList(NAMESPACE+"selectAll");
-		PageInfo<Goods> page = new PageInfo<Goods>(list);
 		return list;
 	}
 

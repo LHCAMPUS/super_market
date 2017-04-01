@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -26,15 +27,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</td>
 					</tr>
 					<tr>
-						<td width="15%" align="right">商品ID:</td>
+						<td align="right" valign="top">商品:</td>
 						<td>
-							<input type="text" name="goods_id" class="txt" value="${goods.goods_id }" required placeholder="请输入商品ID"/>
-						</td>
-					</tr>
-					<tr>
-						<td align="right" valign="top">商品名:</td>
-						<td>
-							<input type="text" name="goods_name" value="${goods.goods_name }" required  class="txt" placeholder="请输入商品名"/>
+							<select name="goods_id" id="goods_id">
+								<c:forEach var = "goods" items="${goodList }">
+									<c:choose>
+										<c:when test="${goods.goods_id ==inhousing.goods_id }">
+											<option value="${goods.goods_id }" selected="selected">${goods.goods_name } </option>
+										</c:when>
+										<c:otherwise>
+											<option value="${goods.goods_id }">${goods.goods_name } </option>
+										</c:otherwise>
+									</c:choose>
+								</c:forEach>
+							</select>
 						</td>
 					</tr>
 					<tr>
@@ -44,15 +50,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</td>
 					</tr>
 					<tr>
-						<td align="right" valign="top">供应商ID:</td>
+						<td align="right" valign="top">供应商:</td>
 						<td>
-							<input type="text" name="supplier_id" value="${supplier.supplier_id }" required   class="txt" placeholder="请输入供应商ID"/>
+							<select name="supplier_id" id="supplier_id">
+								<c:forEach var = "supplier" items="${supplierList }">
+									<c:choose>
+										<c:when test="${supplier.supplier_id ==inhousing.supplier_id }">
+											<option value="${supplier.supplier_id }" selected="selected">${supplier.supplier_name } </option>
+										</c:when>
+										<c:otherwise>
+											<option value="${supplier.supplier_id }">${supplier.supplier_name } </option>
+										</c:otherwise>
+									</c:choose>
+								</c:forEach>
+							</select>
 						</td>
 					</tr>
 					<tr>
-						<td align="right" valign="top">仓库ID:</td>
+						<td align="right" valign="top">仓库:</td>
 						<td>
-							<input type="text" name="warehouse_id" value="${warehouse.warehouse_id }" required  class="txt" placeholder="请输入仓库ID"/>
+							<select name="warehouse_id" id="warehouse_id">
+								<c:forEach var = "warehouse" items="${warehouseList }">
+									<c:choose>
+										<c:when test="${warehouse.warehouse_id ==inhousing.warehouse_id }">
+											<option value="${warehouse.warehouse_id }" selected="selected">${warehouse.warehouse_name } </option>
+										</c:when>
+										<c:otherwise>
+											<option value="${warehouse.warehouse_id }">${warehouse.warehouse_name } </option>
+										</c:otherwise>
+									</c:choose>
+								</c:forEach>
+							</select>
 						</td>
 					</tr>
 					<tr>
