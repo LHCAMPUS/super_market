@@ -24,24 +24,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td>
 							<input type="text" name="vip_name" class="txt" required placeholder="请输入会员姓名"/>
 						</td>
-					<tr>
+					</tr>
 					<tr>
 						<td align="right" valign="top">会员卡号:</td>
 						<td>
 							<input type="text" name="vip_idCard" required  class="txt" placeholder="请输入会员卡号"/>
 						</td>
-					<tr>
+					</tr>
 					<tr>
 						<td align="right" valign="top">会员积分:</td>
 						<td>
 							<input type="text" name="vip_integral" required  class="txt" placeholder="请输入会员积分"/>						
 						</td>
-					<tr>
+					</tr>
 					<tr>
 						<td colspan="2" align="center">
 							<input type="submit" value="添加" class="btn"/>
 						</td>
-					<tr>
+					</tr>
 				</table>
 			</form>
 		</div>

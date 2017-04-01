@@ -24,30 +24,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td>
 							<input type="text" name="vip_no" class="txt" value="${viper.vip_no }" required readonly/>
 						</td>
-					<tr>
+					</tr>
 					<tr>
 						<td align="right" valign="top">会员姓名:</td>
 						<td>
 							<input type="text" name="vip_name" value="${viper.vip_name }" required  class="txt" placeholder="请输入年龄"/>
 						</td>
-					<tr>
+					</tr>
 					<tr>
 						<td align="right" valign="top">会员卡号:</td>
 						<td>
 							<input type="text" name="vip_idCard" value="${viper.vip_idCard }" required  class="txt" placeholder="请输入手机"/>						
 						</td>
-					<tr>
+					</tr>
 					<tr>
 						<td align="right" valign="top">会员积分:</td>
 						<td>
 							<input type="text" name="vip_integral" value="${viper.vip_integral }" required   class="txt" placeholder="请输入职称"/>
 						</td>
-					<tr>
+					</tr>
 					<tr>
 						<td colspan="2" align="center">
 							<input type="submit" value="修改" class="btn"/>
 						</td>
-					<tr>
+					</tr>
 				</table>
 				<input type="hidden" name="vip_id" value="${viper.vip_id }" />
 			</form>

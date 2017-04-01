@@ -24,30 +24,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td>
 							<input type="text" name="supplier_name" class="txt" required placeholder="请输入公司名"/>
 						</td>
-					<tr>
+					</tr>
 					<tr>
 						<td width="15%" align="right">负责人:</td>
 						<td>
 							<input type="text" name="supplier_person" class="txt" required placeholder="请输入负责人姓名"/>
 						</td>
-					<tr>
+					</tr>
 					<tr>
 						<td align="right" valign="top">地址:</td>
 						<td>
 							<input type="text" name="supplier_address" required  class="txt" placeholder="请输入地址"/>
 						</td>
-					<tr>
+					</tr>
 					<tr>
 						<td align="right" valign="top">电话:</td>
 						<td>
 							<input type="text" name="supplier_phone" required  class="txt" placeholder="请输入电话号码"/>						
 						</td>
-					<tr>
+					</tr>
 					<tr>
 						<td colspan="2" align="center">
 							<input type="submit" value="添加" class="btn"/>
 						</td>
-					<tr>
+					</tr>
 				</table>
 			</form>
 		</div>

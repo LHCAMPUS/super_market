@@ -24,43 +24,42 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td>
 							<input type="text" name="goods_id" required  class="txt" placeholder="请输入商品ID"/>
 						</td>
-					<tr>
+					</tr>
 					<tr>
 						<td width="15%" align="right">商品名:</td>
 						<td>
 							<input type="text" name="goods_name" class="txt" required placeholder="请输入商品名"/>
 						</td>
-					<tr>
-					
+					</tr>
 					<tr>
 						<td align="right" valign="top">数量:</td>
 						<td>
 							<input type="text" name="goods_counts" required  class="txt" placeholder="请输入商品数量"/>
 						</td>
-					<tr>
+					</tr>
 					<tr>
 						<td align="right" valign="top">供应商ID:</td>
 						<td>
 							<input type="text" name="supplier_id" required  class="txt" placeholder="请输入供应商ID"/>						
 						</td>
-					<tr>
+					</tr>
 					<tr>
 						<td align="right" valign="top">仓库ID:</td>
 						<td>
 							<input type="text" name="warehouse_id" required  class="txt" placeholder="请输入仓库ID"/>
 						</td>
-					<tr>
+					</tr>
 					<tr>
 						<td align="right" valign="top">出库时间:</td>
 						<td>
 							<input type="date" name="outhousing_date" required  class="txt" placeholder="请选择出库时间"/>
 						</td>
-					<tr>
+					</tr>
 					<tr>
 						<td colspan="2" align="center">
 							<input type="submit" value="添加" class="btn"/>
 						</td>
-					<tr>
+					</tr>
 				</table>
 			</form>
 		</div>

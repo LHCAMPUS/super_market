@@ -24,18 +24,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td>
 							<input type="text" name="category_name" class="txt" required placeholder="请输入商品类别名称"/>
 						</td>
-					<tr>
+					</tr>
 					<tr>
 						<td width="15%" align="right">商品类别备注:</td>
 						<td>
 							<input type="text" name="category_remark" class="txt" placeholder="请输入商品类别描述（选填）"/>
 						</td>
-					<tr>
+					</tr>
 					<tr>
 						<td colspan="2" align="center">
 							<input type="submit" value="添加" class="btn"/>
 						</td>
-					<tr>
+					</tr>
 				</table>
 			</form>
 		</div>
