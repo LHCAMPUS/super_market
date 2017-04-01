@@ -26,12 +26,12 @@ public class CategoryServiceImpl implements CategoryService{
 
 	@Override
 	public boolean update(Category model) {
-		return false;
+		return categoryDAOImpl.update(model);
 	}
 
 	@Override
 	public boolean delete(int id) {
-		return false;
+		return categoryDAOImpl.delete(id);
 	}
 
 	@Override

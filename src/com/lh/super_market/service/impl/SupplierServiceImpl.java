@@ -27,12 +27,12 @@ public class SupplierServiceImpl implements SupplierService{
 
 	@Override
 	public boolean update(Supplier model) {
-		return false;
+		return supplierDAOImpl.update(model);
 	}
 
 	@Override
 	public boolean delete(int id) {
-		return false;
+		return supplierDAOImpl.delete(id);
 	}
 
 	@Override
