@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<td>${warehouse.warehouse_name }</td>
 							<td>${warehouse.warehouse_address }</td>
 							<td>
-								<a href="warehouse/updateWarehouse.do?id=${warehouse.warehouse_id }">编辑</a>
+								<a href="warehouse/updateWarehouse.do?id=${warehouse.warehouse_id }">修改</a>
 								&nbsp;&nbsp;
 								<a href="warehouse/deleteWarehouse.do?id=${warehouse.warehouse_id }">删除</a>
 							</td>

@@ -20,28 +20,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<form action="warehouse/addWarehouse.do" method="post">
 				<table>
 					<tr>
-						<td width="15%" align="right">仓库编号:</td>
-						<td>
-							<input type="text" name="warehouse_id" class="txt" required placeholder="请输入仓库编号"/>
-						</td>
-					<tr>
-					<tr>
 						<td align="right" valign="top">仓库名:</td>
 						<td>
 							<input type="text" name="warehouse_name" class="txt" required placeholder="请输入仓库名"/>
 						</td>
-					<tr>
+					</tr>
 					<tr>
 						<td align="right" valign="top">仓库地址:</td>
 						<td>
 							<input type="text" name="warehouse_address" required  class="txt" placeholder="请输入仓库地址"/>
 						</td>
-					<tr>
+					</tr>
 					<tr>
 						<td colspan="2" align="center">
 							<input type="submit" value="添加" class="btn"/>
 						</td>
-					<tr>
+					</tr>
 				</table>
 			</form>
 		</div>

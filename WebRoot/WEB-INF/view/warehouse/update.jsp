@@ -22,26 +22,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<tr>
 						<td align="right" valign="top">仓库编号:</td>
 						<td>
-							<input type="text" name="warehouse_name" value="${warehouse.warehouse_name }" required  class="txt" readonly/>
+							<input type="text" name="warehouse_id" value="${warehouse.warehouse_id }" required  class="txt" readonly/>
 						</td>
-					<tr>
+					</tr>
 					<tr>
 						<td align="right" valign="top">仓库名:</td>
 						<td>
 							<input type="text" name="warehouse_name" value="${warehouse.warehouse_name }" required  class="txt" placeholder="请输入仓库名"/>
 						</td>
-					<tr>
+					</tr>
 					<tr>
 						<td align="right" valign="top">仓库地址:</td>
 						<td>
 							<input type="text" name="warehouse_address" value="${warehouse.warehouse_address }" required  class="txt" placeholder="请输入仓库地址"/>						
 						</td>
-					<tr>
+					</tr>
 					<tr>
 						<td colspan="2" align="center">
 							<input type="submit" value="修改" class="btn"/>
 						</td>
-					<tr>
+					</tr>
 				</table>
 				<input type="hidden" name="warehouse_id" value="${warehouse.warehouse_id }" />
 			</form>
