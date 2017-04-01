@@ -11,6 +11,7 @@
     <result column="staff_id"  property="staff_id" />
     <result column="staff_name" property="staff_name" />
     <result column="staff_sex" property="staff_sex" />
+    <result column="staff_age" property="staff_age" />
     <result column="staff_title" property="staff_title" />
     <result column="staff_wage" property="staff_wage" />
     <result column="staff_address" property="staff_address" />
@@ -20,7 +21,7 @@
 
 
 	<sql id="base_column_list">
-		staff_id,staff_name,staff_sex,staff_title,staff_wage,staff_address,staff_phone,del
+		staff_id,staff_name,staff_sex,staff_age,staff_title,staff_wage,staff_address,staff_phone,del
 	</sql>
 	
 	<select id="selectBystrWhere" parameterType="java.util.Map" resultMap="StaffMap">
@@ -40,10 +41,11 @@
 	
 	<insert id="insert" useGeneratedKeys="true" keyProperty="staff_id"  parameterType="com.lh.super_market.entity.Staff">
 		insert into MARKET_STAFF(
-			staff_name,staff_sex,staff_title,staff_wage,staff_address,staff_phone,del
+			staff_name,staff_sex,staff_age,staff_title,staff_wage,staff_address,staff_phone,del
 		) values(
 			#{staff_name},
 			#{staff_sex},
+			#{staff_age},
 			#{staff_title},
 			#{staff_wage},
 			#{staff_address},
@@ -59,6 +61,7 @@
 	    set 
 	    	staff_name=#{staff_name},
 	    	staff_sex=#{staff_sex},
+	    	staff_age=#{staff_age},
 	    	staff_title=#{staff_title},
 			staff_wage=#{staff_wage},
 			staff_address=#{staff_address},

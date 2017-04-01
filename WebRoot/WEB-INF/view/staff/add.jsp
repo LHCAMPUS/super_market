@@ -24,49 +24,49 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td>
 							<input type="text" name="staff_name" class="txt" required placeholder="请输入姓名"/>
 						</td>
-					<tr>
+					</tr>
 					<tr>
 						<td align="right" valign="top">性别:</td>
 						<td>
 							<input type="radio" name="staff_sex" value="男"  checked/>男
 							<input type="radio" name="staff_sex" value="女" />女
 						</td>
-					<tr>
+					</tr>
 					<tr>
 						<td align="right" valign="top">年龄:</td>
 						<td>
 							<input type="text" name="staff_age" required  class="txt" placeholder="请输入年龄"/>
 						</td>
-					<tr>
+					</tr>
 					<tr>
 						<td align="right" valign="top">手机:</td>
 						<td>
 							<input type="text" name="staff_phone" required  class="txt" placeholder="请输入手机"/>						
 						</td>
-					<tr>
+					</tr>
 					<tr>
 						<td align="right" valign="top">职称:</td>
 						<td>
 							<input type="text" name="staff_title" required  class="txt" placeholder="请输入职称"/>
 						</td>
-					<tr>
+					</tr>
 					<tr>
 						<td align="right" valign="top">工资:</td>
 						<td>
 							<input type="text" name="staff_wage" required  class="txt" placeholder="请输入工资"/>
 						</td>
-					<tr>
+					</tr>
 					<tr>
 						<td align="right" valign="top">地址:</td>
 						<td>
 							<input type="text" name="staff_address" required  class="txt" placeholder="请输入地址"/>
 						</td>
-					<tr>
+					</tr>
 					<tr>
 						<td colspan="2" align="center">
 							<input type="submit" value="添加" class="btn"/>
 						</td>
-					<tr>
+					</tr>
 				</table>
 			</form>
 		</div>

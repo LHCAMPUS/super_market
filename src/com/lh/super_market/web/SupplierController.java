@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.github.pagehelper.PageInfo;
-import com.lh.super_market.entity.Goods;
 import com.lh.super_market.entity.Supplier;
 import com.lh.super_market.service.impl.SupplierServiceImpl;
 
