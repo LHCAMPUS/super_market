@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<form action="outhousing/addOuthousing.do" method="post">
 				<table>
 					<tr>
-						<td align="right" valign="top">商品:</td>
+						<td width="15%" align="right" valign="top">商品:</td>
 						<td>
 							<select name="goods_id" id="goods_id">
 								<c:forEach var = "goods" items="${goodList }">

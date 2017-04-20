@@ -20,7 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<form action="viper/addViper.do" method="post">
 				<table>
 					<tr>
-						<td align="right" valign="top">会员姓名:</td>
+						<td width="15%" align="right" valign="top">会员姓名:</td>
 						<td>
 							<input type="text" name="vip_name" class="txt" required placeholder="请输入会员姓名"/>
 						</td>
