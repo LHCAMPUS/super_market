@@ -19,6 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<form>
 				<table border=1 style="text-align:center">
 					<tr>
+						<th>序号</th>
 						<th>会员编号</th>
 						<th>会员姓名</th>
 						<th>会员卡号</th>
@@ -27,6 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</tr>
 					<c:forEach var="viper" items="${list }">
 						<tr>
+							<td>${viper.vip_id }</td>
 							<td>${viper.vip_no }</td>
 							<td>${viper.vip_name }</td>
 							<td>${viper.vip_idCard }</td>
@@ -39,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</tr>
 					</c:forEach>
 					<tr>
-	   					<td colspan="5" text-align="center">
+	   					<td colspan="6" text-align="center">
 	   						<a href="viper/viperList.do?pageIndex=1">首页</a>
 	   						<a href="viper/viperList.do?pageIndex=${currentPage-1}">上一页</a>
 	   							<c:forEach begin="1" end="${pageCount}" varStatus="v">

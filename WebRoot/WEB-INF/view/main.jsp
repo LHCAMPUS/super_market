@@ -74,6 +74,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<li><a href="outhousing/addOuthousing.do" target="right">出库添加</a></li>
 						</ul>
 					</li>
+					<li class="menu_first"><a>库存管理</a>
+						<ul>
+							<li><a href="stock/stockList.do?pageIndex=1" target="right">库存列表</a></li>
+							<li><a href="stock/addstock.do" target="right">库存修改</a></li>
+						</ul>
+					</li>
 					<li class="menu_first"><a>仓库管理</a>
 						<ul>
 							<li><a href="warehouse/warehouseList.do?pageIndex=1" target="right">仓库列表</a></li>

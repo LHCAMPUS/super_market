@@ -11,6 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <base href="<%=basePath%>">
     <title>出库信息</title>
 	<link type="text/css" rel="stylesheet" href="css/comm.css"/>
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
   </head>
   
   <body>
@@ -21,19 +22,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<tr>
 						<th>出库ID</th>
 						<th>商品</th>
+						<th>供应商</th>
+						<th>仓库</th>
 						<th>数量</th>
-						<th>供应商ID</th>
-						<th>仓库ID</th>
 						<th>出库时间</th>
 						<th>操作</th>
 					</tr>
 					<c:forEach var="outhousing" items="${list }">
 						<tr>
 							<td>${outhousing.outhousing_id }</td>
-							<td>${outhousing.goods_id }</td>
+							<td class="goods_id">${outhousing.goods_id }</td>
+							<td class="supplier_id">${outhousing.supplier_id }</td>
+							<td class="warehouse_id">${outhousing.warehouse_id }</td>
 							<td>${outhousing.goods_counts }</td>
-							<td>${outhousing.supplier_id }</td>
-							<td>${outhousing.warehouse_id }</td>
 							<td>${outhousing.outhousing_date }</td>
 							<td>
 								<a href="outhousing/updateOuthousing.do?id=${outhousing.outhousing_id }">编辑</a>
@@ -64,4 +65,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</form>
 		</div>
   </body>
+   <script type="text/javascript">
+  
+  	$(document).ready(function(){
+  		var count = 0;
+  		$(".goods_id").each(function(){
+  			$.ajax({
+  	  			url : "<%=path%>/outhousing/getgoodAndWare.do",
+  	  			type : "POST",
+  	  			async : false,
+  	  			data :
+  	  			{
+  	  				goods_id : $(this).html(),
+  	  				supplier_id : $(this).next().html(),
+  	  				warehouse_id : $(this).next().next().html()
+  	  			},
+  	  			dataType : 'json',
+  	  			success : function(data){
+	  	  			$(".goods_id").eq(count).html(data.goodsName);
+	  	  			$(".supplier_id").eq(count).html(data.supplierName);
+	  	  			$(".warehouse_id").eq(count).html(data.warehouseName);
+	  	  			count++;
+  	  			}
+  	  			
+  	  		});
+  		});
+  	});
+  </script>
 </html>

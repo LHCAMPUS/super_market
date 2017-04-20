@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.github.pagehelper.PageInfo;
+import com.lh.super_market.dao.impl.StockDAOImpl;
 import com.lh.super_market.entity.Category;
 import com.lh.super_market.entity.Goods;
+import com.lh.super_market.entity.Stock;
 import com.lh.super_market.entity.Warehouse;
 import com.lh.super_market.service.impl.CategoryServiceImpl;
 import com.lh.super_market.service.impl.GoodsServiceImpl;
@@ -36,6 +38,9 @@ public class GoodsController {
 	
 	@Autowired
 	private WarehouseServiceImpl warehouseServiceImpl;
+	
+	@Autowired
+	private StockDAOImpl stockDAOImpl;
 	
 	@RequestMapping("/goodsList.do")
 	public String query(String pageIndex, String pageSize, String strWhere, Model model){
@@ -57,9 +62,19 @@ public class GoodsController {
 	}
 	
 	@RequestMapping(value = "/addGoods.do", method = RequestMethod.POST)
-	public String addGoodsInfo(Goods Goods){
-		goodsServiceImpl.add(Goods);
-		return "goods/add";
+	public String addGoodsInfo(Goods goods, HttpServletResponse response){
+		int id = goodsServiceImpl.add(goods);
+		Stock stock = new Stock();
+		stock.setGoods_id(goods.getGoods_id());
+		stock.setWarehouse_id(goods.getWarehouse_id());
+		int st_result = stockDAOImpl.add(stock);
+		if(st_result <= 0){
+			outStr(false, response, "添加库存");
+		}
+		System.out.println("id="+id);
+		boolean b = id > 0? true : false;
+		outStr(b, response, "添加商品");
+		return null;
 	}
 	
 	@RequestMapping(value = "/updateGoods.do", method = RequestMethod.GET)
@@ -78,14 +93,14 @@ public class GoodsController {
 	@RequestMapping(value = "/updateGoods.do", method = RequestMethod.POST)
 	public String upGoodsInfo(Goods Goods, HttpServletResponse response){
 		boolean b = goodsServiceImpl.update(Goods);
-		outStr(b, response);
+		outStr(b, response, "更新");
 		return null;
 	}
 	
 	@RequestMapping(value = "/deleteGoods.do", method = RequestMethod.GET)
 	public String deleteGoods(String id, HttpServletResponse response){
 		boolean b = goodsServiceImpl.delete(Integer.parseInt(id));
-		outStr(b, response);
+		outStr(b, response, "删除");
 		return null;
 	}
 	
@@ -98,14 +113,14 @@ public class GoodsController {
 		return Jacksons.writeJson(map);
 	}
 	
-	public void outStr(boolean b, HttpServletResponse response){
+	public void outStr(boolean b, HttpServletResponse response, String errMess){
 		try {
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out=response.getWriter();
 			if(b){
 				out.println("<script>alert('操作成功');window.location.href='goodsList.do?pageIndex=1'</script>");
 			}else{
-				out.println("<script>alert('操作失败');window.location.href='goodsList.do?pageIndex=1'</script>");
+				out.println("<script>alert('"+errMess+"操作失败');window.location.href='goodsList.do?pageIndex=1'</script>");
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

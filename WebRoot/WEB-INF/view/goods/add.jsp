@@ -64,12 +64,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<input type="date" name="goods_date" required  class="txt" placeholder="请输入日期"/>						
 						</td>
 					</tr>
-					<tr>
+				<!-- 	<tr>
 						<td align="right" valign="top">数量:</td>
 						<td>
 							<input type="text" name="goods_counts" required  class="txt" placeholder="请输入数量"/>
 						</td>
-					</tr>
+					</tr> -->
 					<tr>
 						<td colspan="2" align="center">
 							<input type="submit" value="添加" class="btn"/>

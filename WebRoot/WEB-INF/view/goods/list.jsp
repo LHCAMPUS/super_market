@@ -27,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<th>仓库</th>
 						<th>售价</th>
 						<th>生产日期</th>
-						<th>数量</th>
+						<!-- <th>数量</th> -->
 						<th>操作</th>
 					</tr>
 					<c:forEach var="goods" items="${list }">
@@ -39,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<td class="warehouse_id">${goods.warehouse_id }</td>
 							<td>${goods.goods_saleMoney }</td>
 							<td>${goods.goods_date }</td>
-							<td>${goods.goods_counts }</td>
+							<%-- <td>${goods.goods_counts }</td> --%>
 							<td>
 								<a href="goods/updateGoods.do?id=${goods.goods_id }">修改</a>
 								&nbsp;&nbsp;

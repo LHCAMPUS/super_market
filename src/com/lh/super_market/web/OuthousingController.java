@@ -13,17 +13,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.github.pagehelper.PageInfo;
 import com.lh.super_market.entity.Goods;
 import com.lh.super_market.entity.Inhousing;
 import com.lh.super_market.entity.Outhousing;
+import com.lh.super_market.entity.Stock;
 import com.lh.super_market.entity.Supplier;
 import com.lh.super_market.entity.Warehouse;
 import com.lh.super_market.service.impl.GoodsServiceImpl;
 import com.lh.super_market.service.impl.OuthousingServiceImpl;
+import com.lh.super_market.service.impl.StockServiceImpl;
 import com.lh.super_market.service.impl.SupplierServiceImpl;
 import com.lh.super_market.service.impl.WarehouseServiceImpl;
+import com.lh.super_market.util.Jacksons;
 
 @Controller
 @RequestMapping("/outhousing")
@@ -40,6 +44,9 @@ public class OuthousingController {
 
 	@Autowired
 	private WarehouseServiceImpl warehouseServiceImpl; 
+	
+	@Autowired
+	private StockServiceImpl stockServiceImpl; 
 	
 	@RequestMapping("/outhousingList.do")
 	public String query(String pageIndex, String pageSize, String strWhere, Model model){
@@ -63,12 +70,23 @@ public class OuthousingController {
 	}
 	
 	@RequestMapping(value = "/addOuthousing.do", method = RequestMethod.POST)
-	public String addOuthousingInfo(Outhousing outhousing){
-		outhousingServiceImpl.add(outhousing);
-		Goods good = goodsServiceImpl.queryById(outhousing.getGoods_id());
-		good.setGoods_counts(good.getGoods_counts()-outhousing.getGoods_counts());
-		goodsServiceImpl.update(good);
-		return "outhousing/add";
+	public String addOuthousingInfo(Outhousing outhousing, HttpServletResponse response){
+		int id = outhousingServiceImpl.add(outhousing);
+		boolean bo = id>0?true:false;
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("strWhere", "Goods_id="+outhousing.getGoods_id()+" and warehouse_id="+outhousing.getWarehouse_id());
+		List<Stock> list = stockServiceImpl.queryByStr(map);
+		Stock stock = list.size()>0?list.get(0):null;
+		if(stock!=null){
+			stock.setCount(stock.getCount()-outhousing.getGoods_counts());
+			boolean b = stockServiceImpl.update(stock);
+			if (!b) {
+				outStr(b, response, "入库");
+				return null;
+			}
+		}
+		outStr(bo, response, "入库");
+		return null;
 	}
 	
 	@RequestMapping(value = "/updateOuthousing.do", method = RequestMethod.GET)
@@ -89,29 +107,52 @@ public class OuthousingController {
 	@RequestMapping(value = "/updateOuthousing.do", method = RequestMethod.POST)
 	public String upOuthousingInfo(Outhousing outhousing, HttpServletResponse response){
 		Outhousing outhousing_up = outhousingServiceImpl.queryById(outhousing.getOuthousing_id());//之前出库的信息
-		Goods good = goodsServiceImpl.queryById(outhousing.getGoods_id());
-		good.setGoods_counts(good.getGoods_counts()-(outhousing.getGoods_counts()-outhousing_up.getGoods_counts()));
-		goodsServiceImpl.update(good);
-		boolean b = outhousingServiceImpl.update(outhousing);
-		outStr(b, response);
+		
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("strWhere", "Goods_id="+outhousing.getGoods_id()+" and warehouse_id="+outhousing.getWarehouse_id());
+		List<Stock> list = stockServiceImpl.queryByStr(map);
+		Stock stock = list.size()>0?list.get(0):null;
+		if(stock==null){
+			outStr(false, response, "更新");
+			return null;
+		}
+		stock.setCount(stock.getCount()-(outhousing.getGoods_counts()-outhousing_up.getGoods_counts()));
+		boolean b = stockServiceImpl.update(stock);
+		if (!b) {
+			outStr(b, response, "更新");
+			return null;
+		}
+		boolean bo = outhousingServiceImpl.update(outhousing);
+		outStr(bo, response, "更新");
 		return null;
 	}
 	
 	@RequestMapping(value = "/deleteOuthousing.do", method = RequestMethod.GET)
 	public String deleteOuthousing(String id, HttpServletResponse response){
 		boolean b = outhousingServiceImpl.delete(Integer.parseInt(id));
-		outStr(b, response);
+		outStr(b, response,"删除");
 		return null;
 	}
 	
-	public void outStr(boolean b, HttpServletResponse response){
+	@RequestMapping(value = "/getgoodAndWare.do", method = RequestMethod.POST, produces = {"text/html;charset=UTF-8;"})
+	@ResponseBody
+	public String getCateAndWare(String goods_id, String warehouse_id, String supplier_id){
+		System.out.println("supplier_id:"+supplier_id);
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("goodsName", goodsServiceImpl.queryById(Integer.parseInt(goods_id)).getGoods_name());
+		map.put("warehouseName", warehouseServiceImpl.queryById(Integer.parseInt(warehouse_id)).getWarehouse_name());
+		map.put("supplierName", supplierServiceImpl.queryById(Integer.parseInt(supplier_id)).getSupplier_name());
+		return Jacksons.writeJson(map);
+	}
+	
+	public void outStr(boolean b, HttpServletResponse response, String errMess){
 		try {
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out=response.getWriter();
 			if(b){
 				out.println("<script>alert('操作成功');window.location.href='outhousingList.do?pageIndex=1'</script>");
 			}else{
-				out.println("<script>alert('操作失败');window.location.href='outhousingList.do?pageIndex=1'</script>");
+				out.println("<script>alert('"+errMess+"操作失败');window.location.href='outhousingList.do?pageIndex=1'</script>");
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

@@ -21,7 +21,7 @@
 
 
 	<sql id="base_column_list">
-		goods_id,goods_name,goods_money,goods_saleMoney,goods_date,goods_counts,category_id,warehouse_id,del
+		goods_id,goods_name,goods_money,goods_saleMoney,goods_date,category_id,warehouse_id,del
 	</sql>
 	
 	<select id="selectBystrWhere" parameterType="java.util.Map" resultMap="GoodsMap">
@@ -39,15 +39,14 @@
 	 	SELECT * FROM MARKET_GOODS WHERE DEL = 0 ORDER BY GOODS_ID;
 	</select>
 	
-	<insert id="insert" useGeneratedKeys="true" keyProperty="staff_id"  parameterType="com.lh.super_market.entity.Goods">
+	<insert id="insert" useGeneratedKeys="true" keyProperty="goods_id"  parameterType="com.lh.super_market.entity.Goods">
 		insert into MARKET_GOODS(
-			goods_name,goods_money,goods_saleMoney,goods_date,goods_counts,category_id,warehouse_id,del
+			goods_name,goods_money,goods_saleMoney,goods_date,category_id,warehouse_id,del
 		) values(
 			#{goods_name},
 			#{goods_money},
 			#{goods_saleMoney},
 			#{goods_date},
-			#{goods_counts},
 			#{category_id},
 			#{warehouse_id},
 			#{del}
@@ -63,7 +62,6 @@
 	    	goods_money=#{goods_money},
 	    	goods_saleMoney=#{goods_saleMoney},
 			goods_date=#{goods_date},
-			goods_counts=#{goods_counts},
 			category_id=#{category_id},
 			warehouse_id=#{warehouse_id},
 			del=#{del}

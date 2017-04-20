@@ -48,8 +48,7 @@ public class SupplierServiceImpl implements SupplierService{
 
 	@Override
 	public Supplier queryById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return supplierDAOImpl.queryById(id);
 	}
 
 	public PageInfo<Supplier> queryByPage(int pageIndex, int pageSize, String strWhere) {

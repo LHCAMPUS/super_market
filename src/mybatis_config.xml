@@ -26,5 +26,6 @@
 		<mapper resource="com/lh/super_market/mapper/WarehouseMapper.xml" />
 		<mapper resource="com/lh/super_market/mapper/ViperMapper.xml" />
 		<mapper resource="com/lh/super_market/mapper/UserMapper.xml" />
+		<mapper resource="com/lh/super_market/mapper/StockMapper.xml" />
 	</mappers>
 </configuration>
