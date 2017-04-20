@@ -9,14 +9,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <base href="<%=basePath%>">
-    <title>修改出库信息</title>
+    <title>修改销售信息</title>
     <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 	<link type="text/css" rel="stylesheet" href="css/comm.css"/>
 
   </head>
   
   <body>
-		<div class="title">出库信息管理 > 出库信息修改</div>
+		<div class="title">销售管理 > 销售信息修改</div>
 		<div class="form_box">
 			<form action="outhousing/updateOuthousing.do" method="post">
 				<table>
@@ -46,24 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<tr>
 						<td align="right" valign="top">数量:</td>
 						<td>
-							<input type="text" name="goods_counts" value="${goods.goods_counts }" required  class="txt" placeholder="请输入商品数量"/>						
-						</td>
-					</tr>
-					<tr>
-						<td align="right" valign="top">供应商:</td>
-						<td>
-							<select name="supplier_id" id="supplier_id">
-								<c:forEach var = "supplier" items="${supplierList }">
-									<c:choose>
-										<c:when test="${supplier.supplier_id ==outhousing.supplier_id }">
-											<option value="${supplier.supplier_id }" selected="selected">${supplier.supplier_name } </option>
-										</c:when>
-										<c:otherwise>
-											<option value="${supplier.supplier_id }">${supplier.supplier_name } </option>
-										</c:otherwise>
-									</c:choose>
-								</c:forEach>
-							</select>
+							<input type="text" name="goods_counts" value="${outhousing.goods_counts }" required  class="txt" placeholder="请输入商品数量"/>						
 						</td>
 					</tr>
 					<tr>
@@ -84,7 +67,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</td>
 					</tr>
 					<tr>
-						<td align="right" valign="top">出库时间:</td>
+						<td align="right" valign="top">销售时间:</td>
 						<td>
 							<input type="date" name="outhousing_date" value="${outhousing.outhousing_date }" required  class="txt" placeholder="请选择出库时间"/>
 						</td>

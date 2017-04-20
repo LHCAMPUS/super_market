@@ -20,21 +20,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<form>
 				<table border=1 style="text-align:center">
 					<tr>
-						<th>出库ID</th>
+						<th>编号</th>
 						<th>商品</th>
-						<th>供应商</th>
-						<th>仓库</th>
+						<!-- <th>供应商</th>
+						<th>仓库</th> -->
+						<th>单价</th>
 						<th>数量</th>
-						<th>出库时间</th>
+						<th>总价</th>
+						<th>销售时间</th>
 						<th>操作</th>
 					</tr>
 					<c:forEach var="outhousing" items="${list }">
 						<tr>
 							<td>${outhousing.outhousing_id }</td>
 							<td class="goods_id">${outhousing.goods_id }</td>
-							<td class="supplier_id">${outhousing.supplier_id }</td>
-							<td class="warehouse_id">${outhousing.warehouse_id }</td>
+							<td class="goods_price"></td>
+							<%-- <td class="supplier_id">${outhousing.supplier_id }</td>
+							<td class="warehouse_id">${outhousing.warehouse_id }</td> --%>
 							<td>${outhousing.goods_counts }</td>
+							<td class="sumprice"></td>
 							<td>${outhousing.outhousing_date }</td>
 							<td>
 								<a href="outhousing/updateOuthousing.do?id=${outhousing.outhousing_id }">编辑</a>
@@ -77,19 +81,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	  			data :
   	  			{
   	  				goods_id : $(this).html(),
-  	  				supplier_id : $(this).next().html(),
-  	  				warehouse_id : $(this).next().next().html()
+  	  				count :  $(this).next().next().html()
   	  			},
   	  			dataType : 'json',
   	  			success : function(data){
 	  	  			$(".goods_id").eq(count).html(data.goodsName);
-	  	  			$(".supplier_id").eq(count).html(data.supplierName);
-	  	  			$(".warehouse_id").eq(count).html(data.warehouseName);
+	  	  			$(".goods_price").eq(count).html(data.goods_price);
+	  	  			$(".sumprice").eq(count).html(data.sumprice);
 	  	  			count++;
   	  			}
   	  			
   	  		});
   		});
+  		
   	});
   </script>
 </html>

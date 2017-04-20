@@ -28,6 +28,7 @@ import com.lh.super_market.service.impl.StockServiceImpl;
 import com.lh.super_market.service.impl.SupplierServiceImpl;
 import com.lh.super_market.service.impl.WarehouseServiceImpl;
 import com.lh.super_market.util.Jacksons;
+import com.lh.super_market.util.Result;
 
 @Controller
 @RequestMapping("/outhousing")
@@ -136,13 +137,25 @@ public class OuthousingController {
 	
 	@RequestMapping(value = "/getgoodAndWare.do", method = RequestMethod.POST, produces = {"text/html;charset=UTF-8;"})
 	@ResponseBody
-	public String getCateAndWare(String goods_id, String warehouse_id, String supplier_id){
-		System.out.println("supplier_id:"+supplier_id);
+	public String getCateAndWare(String goods_id, String count){
+		Map<String, String> map = new HashMap<String, String>();
+		Goods good = goodsServiceImpl.queryById(Integer.parseInt(goods_id));
+		map.put("goodsName", good.getGoods_name());
+		map.put("goods_price", String.valueOf(good.getGoods_saleMoney()));
+		map.put("sumprice", String.valueOf(good.getGoods_saleMoney()*Integer.parseInt(count)));
+//		map.put("warehouseName", warehouseServiceImpl.queryById(Integer.parseInt(warehouse_id)).getWarehouse_name());
+//		map.put("supplierName", supplierServiceImpl.queryById(Integer.parseInt(supplier_id)).getSupplier_name());
+		return Jacksons.writeJson(map);
+	}
+	
+	@RequestMapping(value = "/getGoods.do", method = RequestMethod.POST, produces = {"text/html;charset=UTF-8;"})
+	@ResponseBody
+	public String getGoods(String goods_id, String count){
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("goodsName", goodsServiceImpl.queryById(Integer.parseInt(goods_id)).getGoods_name());
-		map.put("warehouseName", warehouseServiceImpl.queryById(Integer.parseInt(warehouse_id)).getWarehouse_name());
-		map.put("supplierName", supplierServiceImpl.queryById(Integer.parseInt(supplier_id)).getSupplier_name());
-		return Jacksons.writeJson(map);
+		Goods good = goodsServiceImpl.queryById(Integer.parseInt(goods_id));
+		
+		return Jacksons.writeJson(good);
 	}
 	
 	public void outStr(boolean b, HttpServletResponse response, String errMess){

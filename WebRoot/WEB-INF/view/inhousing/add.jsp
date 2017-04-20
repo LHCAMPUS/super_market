@@ -57,7 +57,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</td>
 					</tr>
 					<tr>
-						<td align="right" valign="top">入库时间:</td>
+						<td align="right" valign="top">采购时间:</td>
 						<td>
 							<input type="date" name="inhousing_date" required  class="txt" placeholder="请选择入库时间"/>
 						</td>

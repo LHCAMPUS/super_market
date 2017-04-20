@@ -9,13 +9,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <base href="<%=basePath%>">
-    <title>库存信息</title>
+    <title>库存分析</title>
 	<link type="text/css" rel="stylesheet" href="css/comm.css"/>
 	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
   </head>
   
   <body>
-    <div class="title">库存管理 > 库存列表</div>
+  
+    <div class="title">销售分析 > 库存分析</div>
+    	<div>
+	  		<form action="stock/stockAnalysis.do" method="post">
+	  			<table>
+	  				<tr>
+	  					<td>库存数量：</td>
+	  					<td>
+	  						<input type="text" name="count1" /> 到 <input type="text" name="count2" />
+	  					</td>
+	  					<td><input type="submit" value="查询"></td>
+	  				</tr>
+	  			</table>
+	  			<input type="hidden" name="pageIndex" value="1" />
+	  		</form>
+  		</div>
 		<div class="form_box">
 			<form>
 				<table border=1 style="text-align:center">
@@ -32,17 +47,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<td class="goods_id">${stock.goods_id }</td>
 							<td class="warehouse_id">${stock.warehouse_id }</td>
 							<td>${stock.count }</td>
-							<td>
+							<%-- <td>
 								<a href="viper/updateViper.do?id=${stock.stock_id }">修改</a>
 								&nbsp;&nbsp;
 								<a href="viper/deleteViper.do?id=${stock.stock_id }">删除</a>
-							</td>
+							</td> --%>
 						</tr>
 					</c:forEach>
 					<tr>
 	   					<td colspan="6" text-align="center">
-	   						<a href="stock/stockList.do?pageIndex=1">首页</a>
-	   						<a href="stock/stockList.do?pageIndex=${currentPage-1}">上一页</a>
+	   						<a href="stock/stockAnalysis.do?pageIndex=1">首页</a>
+	   						<a href="stock/stockAnalysis.do?pageIndex=${currentPage-1}">上一页</a>
 	   							<c:forEach begin="1" end="${pageCount}" varStatus="v">
 	   								<c:choose>
 	   									<c:when test="${v.count==currentPage}">
@@ -53,8 +68,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	   									</c:otherwise>
 	   								</c:choose>  							
 	   							</c:forEach>
-	   						<a href="viper/viperList.do?pageIndex=${currentPage+1}">下一页</a>
-	   						<a href="viper/viperList.do?pageIndex=${pageCount}">尾页</a>
+	   						<a href="stock/stockAnalysis.do?pageIndex=${currentPage+1}">下一页</a>
+	   						<a href="stock/stockAnalysis.do?pageIndex=${pageCount}">尾页</a>
 	   					</td>
    					</tr>
 				</table>

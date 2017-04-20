@@ -26,10 +26,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			<div id="left">
 				<ul class="menu_main">
-					<li class="menu_first"><a>员工管理</a>
+					<li class="menu_first"><a>档案管理</a>
 						<ul>
 							<li><a href='staff/staffList.do?pageIndex=1' target="right">员工列表</a></li>
-							<li><a href='staff/addStaff.do' target="right">员工添加</a></li>
+							<li><a href="supplier/supplierList.do?pageIndex=1" target="right">供应商列表</a></li>
+							<li><a href='staff/addStaff.do' target="right">添加员工</a></li>
+							<li><a href="supplier/addSupplier.do" target="right">添加供应商</a></li>
 						</ul>
 					</li>
 					<li class="menu_first"><a>分类管理</a>
@@ -44,44 +46,36 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<li><a href='goods/addGoods.do' target="right">商品添加</a></li>
 						</ul>
 					</li>
-					<li class="menu_first"><a>会员管理</a>
+				<!-- 	<li class="menu_first"><a>会员管理</a>
 						<ul>
 							<li><a href="viper/viperList.do?pageIndex=1" target="right">会员列表</a></li>
 							<li><a href="viper/addViper.do" target="right">会员添加</a></li>
 						</ul>
-					</li>
+					</li> -->
 					<li class="menu_first"><a>销售管理</a>
 						<ul>
-							<li><a href="" target="right"?pageIndex=1>销售列表</a></li>
+							<li><a href="outhousing/addOuthousing.do" target="right"?pageIndex=1>销售商品添加</a></li>
+							<li><a href="outhousing/outhousingList.do?pageIndex=1" target="right"?pageIndex=1>销售列表</a></li>
+						</ul>
+					</li>
+					<li class="menu_first"><a>销售分析</a>
+						<ul>
+							<li><a href="stock/stockAnalysis.do?pageIndex=1" target="right">库存分析</a></li>
+							<li><a href="stock/stockList.do?pageIndex=1" target="right">商品分析</a></li>
+							<li><a href="stock/stockList.do?pageIndex=1" target="right">退货分析</a></li>
 							<li><a href="" target="right">销售添加</a></li>
 						</ul>
 					</li>
-					<li class="menu_first"><a>供应商管理</a>
+					<li class="menu_first"><a>采购管理</a>
 						<ul>
-							<li><a href="supplier/supplierList.do?pageIndex=1" target="right">供应商列表</a></li>
-							<li><a href="supplier/addSupplier.do" target="right">供应商添加</a></li>
-						</ul>
-					</li>
-					<li class="menu_first"><a>入库管理</a>
-						<ul>
-							<li><a href="inhousing/inhousingList.do?pageIndex=1" target="right">入库列表</a></li>
-							<li><a href="inhousing/addInhousing.do" target="right">入库添加</a></li>
-						</ul>
-					</li>
-					<li class="menu_first"><a>出库管理</a>
-						<ul>
-							<li><a href="outhousing/outhousingList.do?pageIndex=1" target="right">出库列表</a></li>
-							<li><a href="outhousing/addOuthousing.do" target="right">出库添加</a></li>
+							<li><a href="inhousing/inhousingList.do?pageIndex=1" target="right">采购列表</a></li>
+							<li><a href="inhousing/addInhousing.do" target="right">采购添加</a></li>
 						</ul>
 					</li>
 					<li class="menu_first"><a>库存管理</a>
 						<ul>
 							<li><a href="stock/stockList.do?pageIndex=1" target="right">库存列表</a></li>
 							<li><a href="stock/addstock.do" target="right">库存修改</a></li>
-						</ul>
-					</li>
-					<li class="menu_first"><a>仓库管理</a>
-						<ul>
 							<li><a href="warehouse/warehouseList.do?pageIndex=1" target="right">仓库列表</a></li>
 							<li><a href="warehouse/addWarehouse.do" target="right">仓库添加</a></li>
 						</ul>

@@ -36,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<input type="text" name="goods_counts" required  class="txt" placeholder="请输入商品数量"/>
 						</td>
 					</tr>
-					<tr>
+					<%-- <tr>
 						<td align="right" valign="top">供应商:</td>
 						<td>
 							<select name="supplier_id" id="supplier_id">
@@ -45,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</c:forEach>
 							</select>
 						</td>
-					</tr>
+					</tr> --%>
 					<tr>
 						<td align="right" valign="top">仓库:</td>
 						<td>
@@ -57,7 +57,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</td>
 					</tr>
 					<tr>
-						<td align="right" valign="top">出库时间:</td>
+						<td align="right" valign="top">销售时间:</td>
 						<td>
 							<input type="date" name="outhousing_date" required  class="txt" placeholder="请选择出库时间"/>
 						</td>
