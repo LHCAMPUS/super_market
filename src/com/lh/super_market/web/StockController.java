@@ -53,18 +53,20 @@ public class StockController {
 	
 	@RequestMapping("/stockAnalysis.do")
 	public String queryAnaly(String pageIndex, String pageSize, String count1, String count2, Model model){
-		String strWhere=null;
+		String strWhere="";
 		if(!StringUtil.isEmpty(count1)){
-			strWhere = " and count>="+count1;
+			strWhere += " and count>="+count1;
 		}
 		if(!StringUtil.isEmpty(count2)){
-			strWhere = " and count<="+count2;
+			strWhere += " and count<="+count2;
 		}
 		PageInfo<Stock> list = stockServiceImpl.queryByPage(Integer.parseInt(pageIndex), 2, strWhere);
 		model.addAttribute("list", list.getList());
 		model.addAttribute("pageCount", list.getPages());
 		model.addAttribute("currentPage", list.getPageNum());
 		model.addAttribute("count", list.getSize());
+		model.addAttribute("count1", count1);
+		model.addAttribute("count2", count2);
 		return "stock/analysis";
 	}
 	

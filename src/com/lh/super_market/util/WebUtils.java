@@ -18,4 +18,9 @@ public class WebUtils {
 		request.getSession().invalidate();
 		request.getSession(true).setAttribute("user", currentUser);
 	}
+	
+	public static void removeUser(){
+		HttpSession session = Servlets.getRequest().getSession();
+		session.removeAttribute("user");
+	}
 }

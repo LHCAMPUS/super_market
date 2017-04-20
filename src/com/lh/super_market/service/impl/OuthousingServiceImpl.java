@@ -52,7 +52,7 @@ public class OuthousingServiceImpl implements OuthousingService{
 	
 	public PageInfo<Outhousing> queryByPage(int pageIndex, int pageSize, String strWhere) {
 		Map<String, String> map = new HashMap<String, String>();
-		String str = strWhere==null?"1=1":strWhere;
+		String str = strWhere==null||strWhere==""?" and 1=1":strWhere;
 		map.put("strWhere", str);
 		return outhousingDAOImpl.queryByPage(pageIndex, pageSize, map);
 	}

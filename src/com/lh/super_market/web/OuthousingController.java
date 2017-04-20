@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.github.pagehelper.PageInfo;
+import com.github.pagehelper.StringUtil;
 import com.lh.super_market.entity.Goods;
 import com.lh.super_market.entity.Inhousing;
 import com.lh.super_market.entity.Outhousing;
@@ -57,6 +58,25 @@ public class OuthousingController {
 		model.addAttribute("currentPage", list.getPageNum());
 		model.addAttribute("count", list.getSize());
 		return "outhousing/list";
+	}
+	
+	@RequestMapping("/outhousingAnalysis.do")
+	public String queryAnaly(String pageIndex, String pageSize, String date1, String date2, Model model){
+		String strWhere="";
+		if(!StringUtil.isEmpty(date1)){
+			strWhere += " and outhousing_date>='"+date1+"'";
+		}
+		if(!StringUtil.isEmpty(date2)){
+			strWhere += " and outhousing_date<='"+date2+"'";
+		}
+		PageInfo<Outhousing> list = outhousingServiceImpl.queryByPage(Integer.parseInt(pageIndex), 2, strWhere);
+		model.addAttribute("list", list.getList());
+		model.addAttribute("pageCount", list.getPages());
+		model.addAttribute("currentPage", list.getPageNum());
+		model.addAttribute("count", list.getSize());
+		model.addAttribute("date1", date1);
+		model.addAttribute("date2", date2);
+		return "outhousing/analysis";
 	}
 	
 	@RequestMapping(value = "/addOuthousing.do", method = RequestMethod.GET)

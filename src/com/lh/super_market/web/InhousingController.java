@@ -75,7 +75,7 @@ public class InhousingController {
 		int id = inhousingServiceImpl.add(inhousing);
 		boolean bo = id>0?true:false;
 		Map<String,String> map = new HashMap<String,String>();
-		map.put("strWhere", "Goods_id="+inhousing.getGoods_id()+" and warehouse_id="+inhousing.getWarehouse_id());
+		map.put("strWhere", " and Goods_id="+inhousing.getGoods_id()+" and warehouse_id="+inhousing.getWarehouse_id());
 		List<Stock> list = stockServiceImpl.queryByStr(map);
 		Stock stock = list.size()>0?list.get(0):null;
 		if(stock!=null){

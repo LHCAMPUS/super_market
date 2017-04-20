@@ -54,7 +54,7 @@ public class OuthousingDAOImpl implements OuthousingDAO{
 	@Override
 	public Outhousing queryById(int id) {
 		Map<String,String> map = new HashMap<String,String>();
-		map.put("strWhere", "outhousing_id="+id);
+		map.put("strWhere", " and outhousing_id="+id);
 		List<Outhousing> list = sqlSessionTemplate.selectList(NAMESPACE+"selectBystrWhere", map);
 		return list.get(0);
 	}

@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  				<tr>
 	  					<td>库存数量：</td>
 	  					<td>
-	  						<input type="text" name="count1" /> 到 <input type="text" name="count2" />
+	  						<input type="text" name="count1" value="${count1 }" /> 到 <input type="text" value="${count2 }" name="count2" />
 	  					</td>
 	  					<td><input type="submit" value="查询"></td>
 	  				</tr>
@@ -37,9 +37,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<tr>
 						<th>序号</th>
 						<th>商品</th>
-						<th>数量</th>
 						<th>仓库</th>
-						<th>操作</th>
+						<th>数量</th>
 					</tr>
 					<c:forEach var="stock" items="${list }">
 						<tr>
@@ -56,20 +55,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</c:forEach>
 					<tr>
 	   					<td colspan="6" text-align="center">
-	   						<a href="stock/stockAnalysis.do?pageIndex=1">首页</a>
-	   						<a href="stock/stockAnalysis.do?pageIndex=${currentPage-1}">上一页</a>
+	   						<a href="stock/stockAnalysis.do?pageIndex=1&count1=${count1 }&count2=${count2}">首页</a>
+	   						<a href="stock/stockAnalysis.do?pageIndex=${currentPage-1}&count1=${count1 }&count2=${count2}">上一页</a>
 	   							<c:forEach begin="1" end="${pageCount}" varStatus="v">
 	   								<c:choose>
 	   									<c:when test="${v.count==currentPage}">
 	   										<span id="sp">${v.count}</span>
 	   									</c:when>
 	   									<c:otherwise>
-	   										<a  id="ap" href="stock/stockList.do?pageIndex=${v.count}">${v.count}</a>
+	   										<a  id="ap" href="stock/stockList.do?pageIndex=${v.count}&count1=${count1 }&count2=${count2}">${v.count}</a>
 	   									</c:otherwise>
 	   								</c:choose>  							
 	   							</c:forEach>
-	   						<a href="stock/stockAnalysis.do?pageIndex=${currentPage+1}">下一页</a>
-	   						<a href="stock/stockAnalysis.do?pageIndex=${pageCount}">尾页</a>
+	   						<a href="stock/stockAnalysis.do?pageIndex=${currentPage+1}&count1=${count1 }&count2=${count2}">下一页</a>
+	   						<a href="stock/stockAnalysis.do?pageIndex=${pageCount}&count1=${count1 }&count2=${count2}">尾页</a>
 	   					</td>
    					</tr>
 				</table>

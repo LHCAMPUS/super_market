@@ -9,23 +9,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <base href="<%=basePath%>">
-    <title>入库信息</title>
+    <title>采购信息</title>
 	<link type="text/css" rel="stylesheet" href="css/comm.css"/>
 	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
   </head>
   
   <body>
-    <div class="title">入库信息管理 > 入库信息列表</div>
+    <div class="title">采购管理 > 采购信息列表</div>
 		<div class="form_box">
 			<form>
 				<table border=1 style="text-align:center">
 					<tr>
-						<th>入库ID</th>
+						<th>采购ID</th>
 						<th>商品</th>
 						<th>供应商</th>
 						<th>仓库</th>
 						<th>数量</th>
-						<th>入库时间</th>
+						<th>采购时间</th>
 						<th>操作</th>
 					</tr>
 					<c:forEach var="inhousing" items="${list }">

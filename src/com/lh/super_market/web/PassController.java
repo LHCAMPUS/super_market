@@ -37,6 +37,12 @@ public class PassController {
 		return "redirect:/main.do";
 	}
 	
+	@RequestMapping(value = "/exit.do", method = RequestMethod.GET)
+	public String exit(){
+		WebUtils.removeUser();
+		return "redirect:/login.do";
+	}
+	
 	@RequestMapping("/loginVer.do")
 	@ResponseBody
 	public String loginVerification(String user,String passw){
