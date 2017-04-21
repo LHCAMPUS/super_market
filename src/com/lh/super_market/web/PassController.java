@@ -43,7 +43,7 @@ public class PassController {
 		return "redirect:/login.do";
 	}
 	
-	@RequestMapping("/loginVer.do")
+	@RequestMapping(value = "/loginVer.do", produces = {"text/html;charset=UTF-8;"})
 	@ResponseBody
 	public String loginVerification(String user,String passw){
 		Result<User> result = userServiceImpl.loginVerification(user, passw);
