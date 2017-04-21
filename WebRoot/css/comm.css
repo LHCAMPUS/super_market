@@ -4,7 +4,7 @@
 		border:0;
 		font-size:14pt;
 		font-family:"微软雅黑";
-		background-color:#5FB9E3;
+		background-color:#33AECC;
 		color:#ffffff;
 		cursor:pointer;/*设置鼠标指针样式*/
 		border-radius:20px;/*设置圆角边框 css3+ */
@@ -98,7 +98,7 @@ table tr:hover
 	color:black;
 }
 tr td a:hover{
-	background-color:#09F;
+	background-color:#33AECC;
 	color:white;
 }
 /* #sp,#ap
@@ -114,9 +114,9 @@ tr td a:hover{
  */
 #sp
 {
-	background: #09F;
+	background: #33AECC;
     color: #FFF;
-    border: 1px solid #09F;
+    border: 1px solid #33AECC;
     padding: 5px 12px;
     border-radius: 3px;
 }

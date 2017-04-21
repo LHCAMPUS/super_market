@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  					<td style="width: 385px;text-align: left;font-size: 11pt;">
 	  						<input type="text" name="count1" value="${count1 }" /> 到 <input type="text" value="${count2 }" name="count2" />
 	  					</td>
-	  					<td><input type="submit" value="查询" style="font-size: 12pt;background-color: #09f;border: 1px solid #09f;color: white;border-radius: 3px;"></td>
+	  					<td><input type="submit" value="查询" style="font-size: 12pt;background-color: #33AECC;border: 2px solid #33AECC;color: white;border-radius: 3px;"></td>
 	  				</tr>
 	  			</table>
 	  			<input type="hidden" name="pageIndex" value="1" />

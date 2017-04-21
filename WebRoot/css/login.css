@@ -44,7 +44,7 @@ a.logo{
 .message {
     margin: 10px 0 0 -58px;
     padding: 18px 10px 18px 60px;
-    background: #5FB9E3;
+    background: #33AECC;
     position: relative;
     color: #fff;
     font-size: 16px;
@@ -92,7 +92,7 @@ input[type=button]{
     vertical-align: middle;
     cursor: pointer;
     color: #ffffff;
-    background-color: #5FB9E3;
+    background-color: #33AECC;
     border-radius: 3px;
     border: none;
     -webkit-appearance: none;
