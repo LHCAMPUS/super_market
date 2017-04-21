@@ -41,9 +41,11 @@ public class SupplierController {
 	}
 	
 	@RequestMapping(value = "/addSupplier.do", method = RequestMethod.POST)
-	public String addSupplierInfo(Supplier supplier){
-		supplierServiceImpl.add(supplier);
-		return "supplier/add";
+	public String addSupplierInfo(Supplier supplier, HttpServletResponse response){
+		int id = supplierServiceImpl.add(supplier);
+		boolean b = id > 0? true : false;
+		outStr(b, response);
+		return null;
 	}
 	
 	@RequestMapping(value = "/updateSupplier.do", method = RequestMethod.GET)

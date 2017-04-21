@@ -1,12 +1,15 @@
 package com.lh.super_market.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageInfo;
 import com.lh.super_market.dao.impl.UserDAOImpl;
+import com.lh.super_market.entity.User;
 import com.lh.super_market.entity.User;
 import com.lh.super_market.service.UserService;
 import com.lh.super_market.util.Result;
@@ -30,37 +33,42 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public List query() {
-		return null;
+	public List<User> query() {
+		List<User> list = userDAOImpl.query();
+		return list;
 	}
 
 	@Override
 	public boolean update(User model) {
-		return false;
+		return userDAOImpl.update(model);
 	}
 
 	@Override
 	public boolean delete(int id) {
-		return false;
+		return userDAOImpl.delete(id);
 	}
-
-
-	@Override
-	public List queryByStr(Map map) {
-		return null;
-	}
-
 
 	@Override
 	public int add(User model) {
-		// TODO Auto-generated method stub
-		return 0;
+		model.setDel(0);
+		return userDAOImpl.add(model);
+	}
+
+	@Override
+	public List<User> queryByStr(Map map) {
+		return userDAOImpl.queryByStr(map);
 	}
 
 	@Override
 	public User queryById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return userDAOImpl.queryById(id);
+	}
+
+	public PageInfo<User> queryByPage(int pageIndex, int pageSize, String strWhere) {
+		Map<String, String> map = new HashMap<String, String>();
+		String str = strWhere==null?"1=1":strWhere;
+		map.put("strWhere", str);
+		return userDAOImpl.queryByPage(pageIndex, pageSize, map);
 	}
 
 }

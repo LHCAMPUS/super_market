@@ -3,6 +3,7 @@ package com.lh.super_market.entity;
 public class User {
 
 	private int id;
+	private String realname;
 	private String username;
 	private String password;
 	private String phone;
@@ -38,5 +39,12 @@ public class User {
 	public void setDel(int del) {
 		this.del = del;
 	}
+	public String getRealname() {
+		return realname;
+	}
+	public void setRealname(String realname) {
+		this.realname = realname;
+	}
+	
 	
 }

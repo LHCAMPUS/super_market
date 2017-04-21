@@ -22,8 +22,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<tr>
 						<th>序号</th>
 						<th>商品</th>
-						<th>数量</th>
 						<th>仓库</th>
+						<th>数量</th>
 						<th>操作</th>
 					</tr>
 					<c:forEach var="stock" items="${list }">

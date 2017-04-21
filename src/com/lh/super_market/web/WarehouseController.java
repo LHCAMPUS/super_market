@@ -41,9 +41,11 @@ public class WarehouseController {
 	}
 	
 	@RequestMapping(value = "/addWarehouse.do", method = RequestMethod.POST)
-	public String addWarehouseInfo(Warehouse warehouse){
-		warehouseServiceImpl.add(warehouse);
-		return "warehouse/add";
+	public String addWarehouseInfo(Warehouse warehouse, HttpServletResponse response){
+		int id = warehouseServiceImpl.add(warehouse);
+		boolean b = id > 0? true : false;
+		outStr(b, response);
+		return null;
 	}
 	
 	@RequestMapping(value = "/updateWarehouse.do", method = RequestMethod.GET)

@@ -41,9 +41,11 @@ public class CategoryController {
 	}
 	
 	@RequestMapping(value = "/addCategory.do", method = RequestMethod.POST)
-	public String addCategoryInfo(Category category){
-		categoryServiceImpl.add(category);
-		return "category/add";
+	public String addCategoryInfo(Category category, HttpServletResponse response){
+		int id = categoryServiceImpl.add(category);
+		boolean b = id > 0? true : false;
+		outStr(b, response);
+		return null;
 	}
 	
 	@RequestMapping(value = "/updateCategory.do", method = RequestMethod.GET)

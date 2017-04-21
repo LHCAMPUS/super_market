@@ -82,11 +82,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</li>
 					<li class="menu_first"><a><div id="menu_img"><img src="images/setting.png"></div>&nbsp;&nbsp;系统设置</a>
 						<ul>
-							<li><a href="" target="right"><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;个人信息</a></li>
-							<li><a href="modify_password.html" target="right"><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;修改密码</a></li>
-							<li><a href="add_admin.html" target="right"><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;新增管理员</a></li>
-							<li><a href="" target="right"><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;管理员列表</a></li>
-							<li><a href="" target="right"><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;系统退出</a></li>
+							<li><a href="password.do" target="right"><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;修改密码</a></li>
+							<li><a href="user/addUser.do" target="right"><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;新增管理员</a></li>
+							<li><a href="user/userList.do?pageIndex=1" target="right"><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;管理员列表</a></li>
 						</ul>
 					</li>
 				</ul>

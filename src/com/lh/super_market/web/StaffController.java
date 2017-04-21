@@ -41,9 +41,11 @@ public class StaffController {
 	}
 	
 	@RequestMapping(value = "/addStaff.do", method = RequestMethod.POST)
-	public String addStaffInfo(Staff staff){
-		staffServiceImpl.add(staff);
-		return "staff/add";
+	public String addStaffInfo(Staff staff,HttpServletResponse response){
+		int id = staffServiceImpl.add(staff);
+		boolean b = id > 0? true : false;
+		outStr(b, response);
+		return null;
 	}
 	
 	@RequestMapping(value = "/updateStaff.do", method = RequestMethod.GET)

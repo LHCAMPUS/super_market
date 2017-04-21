@@ -5,6 +5,7 @@
 
 	<resultMap id="UserMap" type="com.lh.super_market.entity.User">
 		<result column="id" property="id" />
+		<result column="realname" property="realname" />
 		<result column="username" property="username" />
 		<result column="password" property="password" />
 		<result column="phone" property="phone" />
@@ -13,7 +14,7 @@
 
 
 	<sql id="base_column_list">
-		id,username,password,phone,del
+		id,realname,username,password,phone,del
 	</sql>
 
 	<select id="selectBystrWhere" parameterType="java.util.Map"
@@ -35,8 +36,9 @@
 	<insert id="insert" useGeneratedKeys="true" keyProperty="id"
 		parameterType="com.lh.super_market.entity.User">
 		insert into MARKET_USER(
-		username,password,phone,del
+		realname,username,password,phone,del
 		) values(
+		#{realname},
 		#{username},
 		#{password},
 		#{phone},
@@ -49,6 +51,7 @@
 		update
 		MARKET_USER
 		set
+		realname=#{realname},
 		username=#{username},
 		password=#{password},
 		phone=#{phone},
