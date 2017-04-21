@@ -18,8 +18,8 @@ body{
 	}
 .title{
 	width:98%;
-	height:40px;
-	background-color:#F5F5F5;
+	height:41px;
+	background-color:#F2F2F2;
 	line-height:40px;
 	border-left: 1px #eee solid;
 	color:black;
@@ -124,3 +124,18 @@ tr td a:hover{
 	padding-left: 10px;
     padding-top: 15px;
 }
+#welcome{
+	padding:5px;
+	padding-left: 10px;
+}
+#welcome h3,h4{
+	color:#66667D;
+}
+#welcome ul li,p{
+	font-size: 10pt;
+	color:#666666;
+}
+#leader_gif{
+	float:right;
+}
+

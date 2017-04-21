@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			<div id="left">
 				<ul class="menu_main">
-					<li class="menu_first"><a href="welcome.do" style="padding-left: 10px;" target="right">主菜单</a></li>
+					<li class="menu_first"><a href="welcome.do" style="padding-left: 10px;text-decoration: none;" target="right">主菜单</a></li>
 					<li class="menu_first"><a><div id="menu_img"><img src="images/people.png"></div>&nbsp;&nbsp;档案管理</a>
 						<ul>
 							<li><a href='staff/staffList.do?pageIndex=1' target="right"><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;员工列表</a></li>
