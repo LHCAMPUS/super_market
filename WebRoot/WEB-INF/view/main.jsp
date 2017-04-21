@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			<div id="left">
 				<ul class="menu_main">
-					<li class="menu_first"><a style="padding-left: 10px;">主菜单</a></li>
+					<li class="menu_first"><a href="welcome.do" style="padding-left: 10px;" target="right">主菜单</a></li>
 					<li class="menu_first"><a><div id="menu_img"><img src="images/people.png"></div>&nbsp;&nbsp;档案管理</a>
 						<ul>
 							<li><a href='staff/staffList.do?pageIndex=1' target="right"><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;员工列表</a></li>
@@ -90,7 +90,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</ul>
 			</div>
 			<div id="right">
-				<iframe src="welcome.html" name="right" width="100%" height="100%" frameborder="0"></iframe>
+				<iframe src="welcome.do" name="right" width="100%" height="100%" frameborder="0"></iframe>
 			</div>
 		</div>
 	</body>

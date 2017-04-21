@@ -31,6 +31,11 @@ public class PassController {
 		return "main";
 	}
 	
+	@RequestMapping(value = "/welcome.do", method = RequestMethod.GET)
+	public String welcome() {
+		return "welcome";
+	}
+	
 	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
 	public String login() {
 		return "login";
