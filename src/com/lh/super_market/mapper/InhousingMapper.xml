@@ -28,7 +28,7 @@
 		FROM 
 			MARKET_INHOUSING WHERE DEL=0
 		<if test="strWhere!=null and strwhere!=''">
-			and ${strWhere}
+			${strWhere}
 		</if>
 		ORDER BY INHOUSING_ID;
 	</select>

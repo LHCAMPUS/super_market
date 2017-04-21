@@ -33,9 +33,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<td class="warehouse_id">${stock.warehouse_id }</td>
 							<td>${stock.count }</td>
 							<td>
-								<a href="viper/updateViper.do?id=${stock.stock_id }">修改</a>
+								<a href="stock/updateStock.do?id=${stock.stock_id }">修改</a>
 								&nbsp;&nbsp;
-								<a href="viper/deleteViper.do?id=${stock.stock_id }">删除</a>
+								<a href="stock/deleteStock.do?id=${stock.stock_id }">删除</a>
 							</td>
 						</tr>
 					</c:forEach>

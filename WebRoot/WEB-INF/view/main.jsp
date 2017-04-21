@@ -63,7 +63,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<ul>
 							<li><a href="stock/stockAnalysis.do?pageIndex=1" target="right"><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;库存分析</a></li>
 							<li><a href="outhousing/outhousingAnalysis.do?pageIndex=1" target="right"><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;商品分析</a></li>
-							<li><a href="stock/stockList.do?pageIndex=1" target="right"><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;退货分析</a></li>
+							<li><a href="inhousing/inhousingAnalysis.do?pageIndex=1" target="right"><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;采购分析</a></li>
 						</ul>
 					</li>
 					<li class="menu_first"><a><div id="menu_img"><img src="images/sale.png"></div>&nbsp;&nbsp;采购管理</a>
@@ -75,7 +75,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li class="menu_first"><a><div id="menu_img"><img src="images/kucun.png"></div>&nbsp;&nbsp;库存管理</a>
 						<ul>
 							<li><a href="stock/stockList.do?pageIndex=1" target="right"><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;库存列表</a></li>
-							<li><a href="stock/addstock.do" target="right"><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;库存修改</a></li>
 							<li><a href="warehouse/warehouseList.do?pageIndex=1" target="right"><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;仓库列表</a></li>
 							<li><a href="warehouse/addWarehouse.do" target="right"><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;仓库添加</a></li>
 						</ul>

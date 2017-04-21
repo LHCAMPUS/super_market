@@ -18,7 +18,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.github.pagehelper.PageInfo;
 import com.github.pagehelper.StringUtil;
+import com.lh.super_market.entity.Goods;
 import com.lh.super_market.entity.Stock;
+import com.lh.super_market.entity.Warehouse;
 import com.lh.super_market.service.impl.GoodsServiceImpl;
 import com.lh.super_market.service.impl.StockServiceImpl;
 import com.lh.super_market.service.impl.SupplierServiceImpl;
@@ -72,22 +74,26 @@ public class StockController {
 	
 	@RequestMapping(value = "/addStock.do", method = RequestMethod.GET)
 	public String addStaff(){
-		return "Stock/add";
+		return "stock/add";
 	}
 	
 	@RequestMapping(value = "/addStock.do", method = RequestMethod.POST)
 	public String addStockInfo(Stock Stock){
 		stockServiceImpl.add(Stock);
-		return "Stock/add";
+		return "stock/add";
 	}
 	
 	@RequestMapping(value = "/updateStock.do", method = RequestMethod.GET)
 	public String upStock(String id, Model model){
 		Map<String,String> map = new HashMap<String,String>();
-		map.put("strWhere", "stock_id="+id);
+		map.put("strWhere", " and stock_id="+id);
 		List<Stock> list = stockServiceImpl.queryByStr(map);
+		Goods good = goodsServiceImpl.queryById(list.get(0).getGoods_id());
+		Warehouse warehouse = warehouseServiceImpl.queryById(list.get(0).getWarehouse_id());
+		model.addAttribute("goods", good.getGoods_name());
+		model.addAttribute("warehouse", warehouse.getWarehouse_name());
 		model.addAttribute("stock", list.get(0));
-		return "Stock/update";
+		return "stock/update";
 	}
 	
 	@RequestMapping(value = "/updateStock.do", method = RequestMethod.POST)

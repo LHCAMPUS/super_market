@@ -53,7 +53,7 @@
 	    set 
 	    	count=#{count},
 			del=#{del}
-		where warehouse_id=#{warehouse_id} and goods_id=#{goods_id}
+		where stock_id=#{stock_id} 
 	</update>
 	
  	

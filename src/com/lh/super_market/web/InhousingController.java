@@ -16,10 +16,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.github.pagehelper.PageInfo;
+import com.github.pagehelper.StringUtil;
 import com.lh.super_market.dao.impl.SupplierDAOImpl;
 import com.lh.super_market.dao.impl.WarehouseDAOImpl;
 import com.lh.super_market.entity.Goods;
 import com.lh.super_market.entity.Inhousing;
+import com.lh.super_market.entity.Outhousing;
 import com.lh.super_market.entity.Stock;
 import com.lh.super_market.entity.Supplier;
 import com.lh.super_market.entity.Warehouse;
@@ -57,6 +59,25 @@ public class InhousingController {
 		model.addAttribute("currentPage", list.getPageNum());
 		model.addAttribute("count", list.getSize());
 		return "inhousing/list";
+	}
+	
+	@RequestMapping("/inhousingAnalysis.do")
+	public String queryAnaly(String pageIndex, String pageSize, String date1, String date2, Model model){
+		String strWhere="";
+		if(!StringUtil.isEmpty(date1)){
+			strWhere += " and inhousing_date>='"+date1+"'";
+		}
+		if(!StringUtil.isEmpty(date2)){
+			strWhere += " and inhousing_date<='"+date2+"'";
+		}
+		PageInfo<Inhousing> list = inhousingServiceImpl.queryByPage(Integer.parseInt(pageIndex), 2, strWhere);
+		model.addAttribute("list", list.getList());
+		model.addAttribute("pageCount", list.getPages());
+		model.addAttribute("currentPage", list.getPageNum());
+		model.addAttribute("count", list.getSize());
+		model.addAttribute("date1", date1);
+		model.addAttribute("date2", date2);
+		return "inhousing/analysis";
 	}
 	
 	@RequestMapping(value = "/addInhousing.do", method = RequestMethod.GET)

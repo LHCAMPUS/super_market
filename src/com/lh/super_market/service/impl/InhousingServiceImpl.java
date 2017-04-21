@@ -52,7 +52,7 @@ public class InhousingServiceImpl implements InhousingService{
 	
 	public PageInfo<Inhousing> queryByPage(int pageIndex, int pageSize, String strWhere) {
 		Map<String, String> map = new HashMap<String, String>();
-		String str = strWhere==null?"1=1":strWhere;
+		String str = strWhere==null?" and 1=1":strWhere;
 		map.put("strWhere", str);
 		return inhousingDAOImpl.queryByPage(pageIndex, pageSize, map);
 	}

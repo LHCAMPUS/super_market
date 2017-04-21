@@ -54,7 +54,7 @@ public class InhousingDAOImpl implements InhousingDAO{
 	@Override
 	public Inhousing queryById(int id) {
 		Map<String,String> map = new HashMap<String,String>();
-		map.put("strWhere", "inhousing_id="+id);
+		map.put("strWhere", " and inhousing_id="+id);
 		List<Inhousing> list = sqlSessionTemplate.selectList(NAMESPACE+"selectBystrWhere", map);
 		return list.get(0);
 	}

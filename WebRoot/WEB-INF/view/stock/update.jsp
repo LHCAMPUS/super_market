@@ -8,39 +8,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <base href="<%=basePath%>">
-    <title>修改会员信息</title>
+    <title>修改库存信息</title>
     <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 	<link type="text/css" rel="stylesheet" href="css/comm.css"/>
 
   </head>
   
   <body>
-		<div class="title">会员管理 > 会员修改</div>
+		<div class="title">库存管理 > 库存修改</div>
 		<div class="form_box">
-			<form action="viper/updateViper.do" method="post">
+			<form action="stock/updateStock.do" method="post">
 				<table>
 					<tr>
-						<td width="15%" align="right">会员编号:</td>
+						<td width="15%" align="right">仓库:</td>
 						<td>
-							<input type="text" name="vip_no" class="txt" value="${viper.vip_no }" required readonly/>
+							<input type="text" name="warehouse_name" class="txt" value="${warehouse }" required readonly/>
 						</td>
 					</tr>
 					<tr>
-						<td align="right" valign="top">会员姓名:</td>
+						<td align="right" valign="top">商品:</td>
 						<td>
-							<input type="text" name="vip_name" value="${viper.vip_name }" required  class="txt" placeholder="请输入年龄"/>
+							<input type="text" name="goods" value="${goods }" required readonly class="txt" />
 						</td>
 					</tr>
 					<tr>
-						<td align="right" valign="top">会员卡号:</td>
+						<td align="right" valign="top">数量:</td>
 						<td>
-							<input type="text" name="vip_idCard" value="${viper.vip_idCard }" required  class="txt" placeholder="请输入手机"/>						
-						</td>
-					</tr>
-					<tr>
-						<td align="right" valign="top">会员积分:</td>
-						<td>
-							<input type="text" name="vip_integral" value="${viper.vip_integral }" required   class="txt" placeholder="请输入职称"/>
+							<input type="text" name="count" value="${stock.count }" required  class="txt" placeholder="请输入数量"/>						
 						</td>
 					</tr>
 					<tr>
@@ -49,7 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</td>
 					</tr>
 				</table>
-				<input type="hidden" name="vip_id" value="${viper.vip_id }" />
+				<input type="hidden" name="stock_id" value="${stock.stock_id }" />
 			</form>
 		</div>
 	</body>
