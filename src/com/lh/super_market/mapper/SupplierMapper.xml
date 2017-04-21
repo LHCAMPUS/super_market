@@ -25,7 +25,7 @@
 		SELECT 
 			<include refid="base_column_list"/> 
 		FROM 
-<!-- 			MARKET_SUPPLIER WHERE DEL=0 -->
+ 			MARKET_SUPPLIER WHERE DEL=0 
 		<if test="strWhere!=null and strwhere!=''">
 			and ${strWhere}
 		</if>

@@ -99,22 +99,26 @@ public class InhousingController {
 		map.put("strWhere", " and Goods_id="+inhousing.getGoods_id()+" and warehouse_id="+inhousing.getWarehouse_id());
 		List<Stock> list = stockServiceImpl.queryByStr(map);
 		Stock stock = list.size()>0?list.get(0):null;
-		if(stock!=null){
-			stock.setCount(stock.getCount()+inhousing.getGoods_counts());
-			boolean b = stockServiceImpl.update(stock);
-			if (!b) {
-				outStr(b, response, "入库");
-				return null;
-			}
+		if(stock == null){
+			outStr(false, response, "采购");
+			return null;
 		}
-		outStr(bo, response, "入库");
+		
+		stock.setCount(stock.getCount()+inhousing.getGoods_counts());
+		boolean b = stockServiceImpl.update(stock);
+		if (!b) {
+			outStr(b, response, "采购");
+			return null;
+		}
+		
+		outStr(bo, response, "采购");
 		return null;
 	}
 	
 	@RequestMapping(value = "/updateInhousing.do", method = RequestMethod.GET)
 	public String upInhousing(String id, Model model){
 		Map<String,String> map = new HashMap<String,String>();
-		map.put("strWhere", "inhousing_id="+id);
+		map.put("strWhere", " and inhousing_id="+id);
 		List<Inhousing> list = inhousingServiceImpl.queryByStr(map);
 		List<Goods> goodList = goodsServiceImpl.query();
 		List<Supplier> supplierList = supplierServiceImpl.query();
@@ -130,7 +134,7 @@ public class InhousingController {
 	public String upInhousingInfo(Inhousing inhousing, HttpServletResponse response){
 		Inhousing inhousing_up = inhousingServiceImpl.queryById(inhousing.getInhousing_id());
 		Map<String,String> map = new HashMap<String,String>();
-		map.put("strWhere", "Goods_id="+inhousing.getGoods_id()+" and warehouse_id="+inhousing.getWarehouse_id());
+		map.put("strWhere", " and Goods_id="+inhousing.getGoods_id()+" and warehouse_id="+inhousing.getWarehouse_id());
 		List<Stock> list = stockServiceImpl.queryByStr(map);
 		Stock stock = list.size()>0?list.get(0):null;
 		if(stock==null){
@@ -159,7 +163,6 @@ public class InhousingController {
 	@RequestMapping(value = "/getgoodAndWare.do", method = RequestMethod.POST, produces = {"text/html;charset=UTF-8;"})
 	@ResponseBody
 	public String getCateAndWare(String goods_id, String warehouse_id, String supplier_id){
-		System.out.println("supplier_id:"+supplier_id);
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("goodsName", goodsServiceImpl.queryById(Integer.parseInt(goods_id)).getGoods_name());
 		map.put("warehouseName", warehouseServiceImpl.queryById(Integer.parseInt(warehouse_id)).getWarehouse_name());

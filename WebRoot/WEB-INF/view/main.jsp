@@ -22,7 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div id="main">
 			<div id="top">
 				<p style="float:left;display:block;padding-left:25px;font-size:12pt">沃尔玛超市管理系统</p>
-				<p>姶黎，欢迎登录！&nbsp;<a href="exit.do">安全退出</a></p>
+				<p>${user }，欢迎登录！&nbsp;<a href="exit.do">安全退出</a></p>
 			</div>
 			<div id="left">
 				<ul class="menu_main">

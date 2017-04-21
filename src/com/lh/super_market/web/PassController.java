@@ -2,13 +2,12 @@ package com.lh.super_market.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,7 +26,8 @@ public class PassController {
 	private UserServiceImpl userServiceImpl;
 	
 	@RequestMapping(value = "/main.do", method = RequestMethod.GET)
-	public String index() {
+	public String index(Model model) {
+		model.addAttribute("user", WebUtils.getCurrUser().getUsername());
 		return "main";
 	}
 	

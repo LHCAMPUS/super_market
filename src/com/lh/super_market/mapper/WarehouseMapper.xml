@@ -34,7 +34,7 @@
 	 	SELECT * FROM MARKET_WAREHOUSE WHERE DEL = 0;
 	</select>
 	
-	<insert id="insert" useGeneratedKeys="true" keyProperty="staff_id"  parameterType="com.lh.super_market.entity.Warehouse">
+	<insert id="insert" useGeneratedKeys="true" keyProperty="warehouse_id"  parameterType="com.lh.super_market.entity.Warehouse">
 		insert into MARKET_WAREHOUSE(
 			warehouse_name,warehouse_address,del
 		) values(

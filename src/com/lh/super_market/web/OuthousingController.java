@@ -95,7 +95,7 @@ public class OuthousingController {
 		int id = outhousingServiceImpl.add(outhousing);
 		boolean bo = id>0?true:false;
 		Map<String,String> map = new HashMap<String,String>();
-		map.put("strWhere", "Goods_id="+outhousing.getGoods_id()+" and warehouse_id="+outhousing.getWarehouse_id());
+		map.put("strWhere", " and Goods_id="+outhousing.getGoods_id()+" and warehouse_id="+outhousing.getWarehouse_id());
 		List<Stock> list = stockServiceImpl.queryByStr(map);
 		Stock stock = list.size()>0?list.get(0):null;
 		if(stock!=null){
@@ -130,7 +130,7 @@ public class OuthousingController {
 		Outhousing outhousing_up = outhousingServiceImpl.queryById(outhousing.getOuthousing_id());//之前出库的信息
 		
 		Map<String,String> map = new HashMap<String,String>();
-		map.put("strWhere", "Goods_id="+outhousing.getGoods_id()+" and warehouse_id="+outhousing.getWarehouse_id());
+		map.put("strWhere", " and Goods_id="+outhousing.getGoods_id()+" and warehouse_id="+outhousing.getWarehouse_id());
 		List<Stock> list = stockServiceImpl.queryByStr(map);
 		Stock stock = list.size()>0?list.get(0):null;
 		if(stock==null){

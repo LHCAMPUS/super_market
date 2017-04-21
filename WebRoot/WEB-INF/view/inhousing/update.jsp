@@ -46,7 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<tr>
 						<td align="right" valign="top">数量:</td>
 						<td>
-							<input type="text" name="goods_counts" value="${goods.goods_counts }" required  class="txt" placeholder="请输入商品数量"/>						
+							<input type="text" name="goods_counts" value="${inhousing.goods_counts }" required  class="txt" placeholder="请输入商品数量"/>						
 						</td>
 					</tr>
 					<tr>
