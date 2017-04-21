@@ -97,7 +97,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$(function(){
 			$(".menu_first > a").click(function(){
 				var list = $(this).next("ul");
+				$(this).css('color','#33AECC');
+				$($(this).parent().siblings()).children('a').css('color','black');
 				list.slideToggle("fast");
+			});
+			
+			$(".menu_first > ul > li > a").click(function(){
+				$(this).parent().parent().parent().children('a').css('color','#33AECC');
+				$($(this).parent().parent().parent().siblings()).children('a').css('color','black');
 			});
 			
 			$(".menu_first > ul > li").hover(
