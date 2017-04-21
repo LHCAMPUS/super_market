@@ -120,4 +120,7 @@ tr td a:hover{
     padding: 5px 12px;
     border-radius: 3px;
 }
-
+#analy_top{
+	padding-left: 10px;
+    padding-top: 15px;
+}

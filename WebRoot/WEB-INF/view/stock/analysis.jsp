@@ -17,15 +17,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
   
     <div class="title">销售分析 > 库存分析</div>
-    	<div>
+    	<div id="analy_top">
 	  		<form action="stock/stockAnalysis.do" method="post">
 	  			<table>
 	  				<tr>
-	  					<td>库存数量：</td>
-	  					<td>
+	  					<td style="width: 125px;text-align: center;font-size: 11pt;">库存数量：</td>
+	  					<td style="width: 385px;text-align: left;font-size: 11pt;">
 	  						<input type="text" name="count1" value="${count1 }" /> 到 <input type="text" value="${count2 }" name="count2" />
 	  					</td>
-	  					<td><input type="submit" value="查询"></td>
+	  					<td><input type="submit" value="查询" style="font-size: 12pt;background-color: #09f;border: 1px solid #09f;color: white;border-radius: 3px;"></td>
 	  				</tr>
 	  			</table>
 	  			<input type="hidden" name="pageIndex" value="1" />
