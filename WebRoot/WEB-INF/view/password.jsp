@@ -14,7 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-		<div class="title">系统设置 > 密码修改</div>
+		<div class="title">系统设置 > 修改密码</div>
 		<div class="form_box">
 			<form action="password.do" method="post">
 				<table>

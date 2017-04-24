@@ -53,7 +53,7 @@ public class InhousingController {
 	
 	@RequestMapping("/inhousingList.do")
 	public String query(String pageIndex, String pageSize, String strWhere, Model model){
-		PageInfo<Inhousing> list = inhousingServiceImpl.queryByPage(Integer.parseInt(pageIndex), 2, strWhere);
+		PageInfo<Inhousing> list = inhousingServiceImpl.queryByPage(Integer.parseInt(pageIndex), 5, strWhere);
 		model.addAttribute("list", list.getList());
 		model.addAttribute("pageCount", list.getPages());
 		model.addAttribute("currentPage", list.getPageNum());
@@ -70,7 +70,7 @@ public class InhousingController {
 		if(!StringUtil.isEmpty(date2)){
 			strWhere += " and inhousing_date<='"+date2+"'";
 		}
-		PageInfo<Inhousing> list = inhousingServiceImpl.queryByPage(Integer.parseInt(pageIndex), 2, strWhere);
+		PageInfo<Inhousing> list = inhousingServiceImpl.queryByPage(Integer.parseInt(pageIndex), 5, strWhere);
 		model.addAttribute("list", list.getList());
 		model.addAttribute("pageCount", list.getPages());
 		model.addAttribute("currentPage", list.getPageNum());

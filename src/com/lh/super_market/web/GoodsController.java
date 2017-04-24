@@ -44,7 +44,7 @@ public class GoodsController {
 	
 	@RequestMapping("/goodsList.do")
 	public String query(String pageIndex, String pageSize, String strWhere, Model model){
-		PageInfo<Goods> list = goodsServiceImpl.queryByPage(Integer.parseInt(pageIndex), 2, strWhere);
+		PageInfo<Goods> list = goodsServiceImpl.queryByPage(Integer.parseInt(pageIndex), 5, strWhere);
 		model.addAttribute("list", list.getList());
 		model.addAttribute("pageCount", list.getPages());
 		model.addAttribute("currentPage", list.getPageNum());

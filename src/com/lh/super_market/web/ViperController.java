@@ -27,7 +27,7 @@ public class ViperController {
 	
 	@RequestMapping("/viperList.do")
 	public String query(String pageIndex, String pageSize, String strWhere, Model model){
-		PageInfo<Viper> list = viperServiceImpl.queryByPage(Integer.parseInt(pageIndex), 2, strWhere);
+		PageInfo<Viper> list = viperServiceImpl.queryByPage(Integer.parseInt(pageIndex), 5, strWhere);
 		model.addAttribute("list", list.getList());
 		model.addAttribute("pageCount", list.getPages());
 		model.addAttribute("currentPage", list.getPageNum());

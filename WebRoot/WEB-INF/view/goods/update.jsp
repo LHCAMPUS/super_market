@@ -9,14 +9,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <base href="<%=basePath%>">
-    <title>修改员工信息</title>
+    <title>修改商品信息</title>
     <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 	<link type="text/css" rel="stylesheet" href="css/comm.css"/>
 
   </head>
   
   <body>
-		<div class="title">商品管理 > 商品修改</div>
+		<div class="title">商品列表 > 商品修改</div>
 		<div class="form_box">
 			<form action="goods/updateGoods.do" method="post">
 				<table>
@@ -59,7 +59,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											<option value="${warehouse.warehouse_id }" selected="selected">${warehouse.warehouse_name } </option>
 										</c:when>
 										<c:otherwise>
-											<option value="${warehouse.warehouse_id }">${warehouse.category_name } </option>
+											<option value="${warehouse.warehouse_id }">${warehouse.warehouse_name } </option>
 										</c:otherwise>
 									</c:choose>
 								</c:forEach>

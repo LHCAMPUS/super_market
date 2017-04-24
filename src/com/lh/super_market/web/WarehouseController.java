@@ -27,7 +27,7 @@ public class WarehouseController {
 	
 	@RequestMapping("/warehouseList.do")
 	public String query(String pageIndex, String pageSize, String strWhere, Model model){
-		PageInfo<Warehouse> list = warehouseServiceImpl.queryByPage(Integer.parseInt(pageIndex), 2, strWhere);
+		PageInfo<Warehouse> list = warehouseServiceImpl.queryByPage(Integer.parseInt(pageIndex), 5, strWhere);
 		model.addAttribute("list", list.getList());
 		model.addAttribute("pageCount", list.getPages());
 		model.addAttribute("currentPage", list.getPageNum());

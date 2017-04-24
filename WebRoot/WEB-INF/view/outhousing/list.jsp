@@ -9,13 +9,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <base href="<%=basePath%>">
-    <title>出库信息</title>
+    <title>销售信息</title>
 	<link type="text/css" rel="stylesheet" href="css/comm.css"/>
 	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
   </head>
   
   <body>
-    <div class="title">出库信息管理 > 出库信息列表</div>
+    <div class="title">销售管理 > 销售列表</div>
 		<div class="form_box">
 			<form>
 				<table border=1 style="text-align:center">
@@ -41,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<td class="sumprice"></td>
 							<td>${outhousing.outhousing_date }</td>
 							<td>
-								<a href="outhousing/updateOuthousing.do?id=${outhousing.outhousing_id }">编辑</a>
+								<a href="outhousing/updateOuthousing.do?id=${outhousing.outhousing_id }">修改</a>
 								&nbsp;&nbsp;
 								<a href="outhousing/deleteOuthousing.do?id=${outhousing.outhousing_id }">删除</a>
 							</td>

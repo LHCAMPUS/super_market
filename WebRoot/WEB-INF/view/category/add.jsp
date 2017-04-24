@@ -8,14 +8,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <base href="<%=basePath%>">
-    <title>添加员工信息</title>
+    <title>添加分类信息</title>
     <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 	<link type="text/css" rel="stylesheet" href="css/comm.css"/>
 
   </head>
   
   <body>
-		<div class="title">商品类别管理 > 商品类别添加</div>
+		<div class="title">分类管理 > 分类添加</div>
 		<div class="form_box">
 			<form action="category/addCategory.do" method="post">
 				<table>

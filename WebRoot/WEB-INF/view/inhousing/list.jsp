@@ -15,7 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <div class="title">采购管理 > 采购信息列表</div>
+    <div class="title">采购管理 > 采购列表</div>
 		<div class="form_box">
 			<form>
 				<table border=1 style="text-align:center">
@@ -37,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<td>${inhousing.goods_counts }</td>
 							<td>${inhousing.inhousing_date }</td>
 							<td>
-								<a href="inhousing/updateInhousing.do?id=${inhousing.inhousing_id }">编辑</a>
+								<a href="inhousing/updateInhousing.do?id=${inhousing.inhousing_id }">修改</a>
 								&nbsp;&nbsp;
 								<a href="inhousing/deleteInhousing.do?id=${inhousing.inhousing_id }">删除</a>
 							</td>

@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <base href="<%=basePath%>">
-    <title>员工信息</title>
+    <title>商品信息</title>
 	<link type="text/css" rel="stylesheet" href="css/comm.css"/>
 	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
   </head>

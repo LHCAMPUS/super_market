@@ -9,14 +9,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <base href="<%=basePath%>">
-    <title>修改入库信息</title>
+    <title>修改采购信息</title>
     <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 	<link type="text/css" rel="stylesheet" href="css/comm.css"/>
 
   </head>
   
   <body>
-		<div class="title">入库信息管理 > 入库信息修改</div>
+		<div class="title">采购列表 > 采购修改</div>
 		<div class="form_box">
 			<form action="inhousing/updateInhousing.do" method="post">
 				<table>

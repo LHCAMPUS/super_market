@@ -31,8 +31,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<ul>
 							<li><a href='staff/staffList.do?pageIndex=1' target="right"><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;员工列表</a></li>
 							<li><a href="supplier/supplierList.do?pageIndex=1" target="right"><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;供应商列表</a></li>
-							<li><a href='staff/addStaff.do' target="right"><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;添加员工</a></li>
-							<li><a href="supplier/addSupplier.do" target="right"><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;添加供应商</a></li>
+							<li><a href='staff/addStaff.do' target="right"><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;员工添加</a></li>
+							<li><a href="supplier/addSupplier.do" target="right"><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;供应商添加</a></li>
 						</ul>
 					</li>
 					<li class="menu_first"><a><div id="menu_img"><img src="images/category.png"></div>&nbsp;&nbsp;分类管理</a>
@@ -55,15 +55,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</li> -->
 					<li class="menu_first"><a><div id="menu_img"><img src="images/sale.png"></div>&nbsp;&nbsp;销售管理</a>
 						<ul>
-							<li><a href="outhousing/addOuthousing.do" target="right"?pageIndex=1><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;销售商品添加</a></li>
 							<li><a href="outhousing/outhousingList.do?pageIndex=1" target="right"?pageIndex=1><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;销售列表</a></li>
+							<li><a href="outhousing/addOuthousing.do" target="right"?pageIndex=1><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;销售商品添加</a></li>
 						</ul>
 					</li>
 					<li class="menu_first"><a><div id="menu_img"><img src="images/salefenxi.png"></div>&nbsp;&nbsp;销售分析</a>
 						<ul>
 							<li><a href="stock/stockAnalysis.do?pageIndex=1" target="right"><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;库存分析</a></li>
-							<li><a href="outhousing/outhousingAnalysis.do?pageIndex=1" target="right"><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;商品分析</a></li>
 							<li><a href="inhousing/inhousingAnalysis.do?pageIndex=1" target="right"><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;采购分析</a></li>
+							<li><a href="outhousing/outhousingAnalysis.do?pageIndex=1" target="right"><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;销售商品分析</a></li>
 						</ul>
 					</li>
 					<li class="menu_first"><a><div id="menu_img"><img src="images/sale.png"></div>&nbsp;&nbsp;采购管理</a>
@@ -82,7 +82,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li class="menu_first"><a><div id="menu_img"><img src="images/setting.png"></div>&nbsp;&nbsp;系统设置</a>
 						<ul>
 							<li><a href="password.do" target="right"><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;修改密码</a></li>
-							<li><a href="user/addUser.do" target="right"><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;新增管理员</a></li>
+							<li><a href="user/addUser.do" target="right"><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;管理员添加</a></li>
 							<li><a href="user/userList.do?pageIndex=1" target="right"><div id="menu_img"><img src="images/folder.png"></div>&nbsp;&nbsp;管理员列表</a></li>
 						</ul>
 					</li>

@@ -15,7 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-		<div class="title">员工管理 > 员工修改</div>
+		<div class="title">员工列表 > 员工修改</div>
 		<div class="form_box">
 			<form action="staff/updateStaff.do" method="post">
 				<table>

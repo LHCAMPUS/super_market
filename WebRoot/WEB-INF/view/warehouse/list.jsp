@@ -14,7 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <div class="title">仓库管理 > 仓库列表</div>
+    <div class="title">库存管理 > 仓库列表</div>
 		<div class="form_box">
 			<form>
 				<table border=1 style="text-align:center">

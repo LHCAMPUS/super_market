@@ -52,7 +52,7 @@ public class OuthousingController {
 	
 	@RequestMapping("/outhousingList.do")
 	public String query(String pageIndex, String pageSize, String strWhere, Model model){
-		PageInfo<Outhousing> list = outhousingServiceImpl.queryByPage(Integer.parseInt(pageIndex), 2, strWhere);
+		PageInfo<Outhousing> list = outhousingServiceImpl.queryByPage(Integer.parseInt(pageIndex), 5, strWhere);
 		model.addAttribute("list", list.getList());
 		model.addAttribute("pageCount", list.getPages());
 		model.addAttribute("currentPage", list.getPageNum());
@@ -113,7 +113,7 @@ public class OuthousingController {
 	@RequestMapping(value = "/updateOuthousing.do", method = RequestMethod.GET)
 	public String upOuthousing(String id, Model model){
 		Map<String,String> map = new HashMap<String,String>();
-		map.put("strWhere", "outhousing_id="+id);
+		map.put("strWhere", " and outhousing_id="+id);
 		List<Outhousing> list = outhousingServiceImpl.queryByStr(map);
 		List<Goods> goodList = goodsServiceImpl.query();
 		List<Supplier> supplierList = supplierServiceImpl.query();
